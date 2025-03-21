@@ -38,9 +38,13 @@ namespace Brætspils_butikken
             Console.WriteLine("Indtast spiltype (Fx Strategi, Simulation, Familie): ");
             string gameType = Console.ReadLine();
 
-            // Opretter et nyt spil
-            BoardGame game = new BoardGame(title, condition, price, quantity, gameType);
+            Console.WriteLine("Indtast minimum antal spillere: ");
+            int minPlayers = int.Parse(Console.ReadLine());
 
+            Console.WriteLine("Indtast maksimum antal spillere: ");
+            int maxPlayers = int.Parse(Console.ReadLine());
+
+            BoardGame game = new BoardGame(title, condition, price, quantity, gameType, minPlayers, maxPlayers);
             games.Add(game);
             SaveToFile(); // saves the changes to File.
             Console.WriteLine($"Brætspillet '{game.Title}' er tilføjet til lageret.");
