@@ -27,7 +27,8 @@ namespace Brætspils_butikken
                 Console.WriteLine("1. Tilføj nyt brætspil");
                 Console.WriteLine("2. Fjern et brætspil");
                 Console.WriteLine("3. Se lager");
-                Console.WriteLine("4. Afslut");
+                Console.WriteLine("4. Ændre et brætspil");
+                Console.WriteLine("5. Afslut");
                 Console.WriteLine("vælg en mulighed");
 
                 string choice = Console.ReadLine();
@@ -44,6 +45,9 @@ namespace Brætspils_butikken
                         inventory.ShowInventory();
                         break;
                     case "4":
+                        EditBoardGame();
+                        break;
+                    case "5":
                         running = false;
                         Console.WriteLine("programmet afsluttes...");
                         break;
@@ -59,6 +63,13 @@ namespace Brætspils_butikken
             Console.WriteLine("Indtast titlen på spillet du gerne vil fjerne: ");
             string title = Console.ReadLine();
             inventory.RemoveGame(title);
+        }
+
+        private void EditBoardGame()
+        {
+            Console.WriteLine("Indtast titlen på spillet du gerne vil redigere: ");
+            string title = Console.ReadLine();
+            inventory.EditGame(title);
         }
     }
 }
