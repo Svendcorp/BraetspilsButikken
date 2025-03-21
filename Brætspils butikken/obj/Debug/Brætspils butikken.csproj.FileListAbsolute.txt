@@ -1,0 +1,21 @@
+C:\Users\buch_\OneDrive\Skrivebord\Github Projekter\Brætspils butikken\Brætspils butikken\bin\Debug\Brætspils butikken.exe.config
+C:\Users\buch_\OneDrive\Skrivebord\Github Projekter\Brætspils butikken\Brætspils butikken\bin\Debug\Brætspils butikken.exe
+C:\Users\buch_\OneDrive\Skrivebord\Github Projekter\Brætspils butikken\Brætspils butikken\bin\Debug\Brætspils butikken.pdb
+C:\Users\buch_\OneDrive\Skrivebord\Github Projekter\Brætspils butikken\Brætspils butikken\obj\Debug\Brætspils butikken.csproj.AssemblyReference.cache
+C:\Users\buch_\OneDrive\Skrivebord\Github Projekter\Brætspils butikken\Brætspils butikken\obj\Debug\Brætspils butikken.csproj.CoreCompileInputs.cache
+C:\Users\buch_\OneDrive\Skrivebord\Github Projekter\Brætspils butikken\Brætspils butikken\obj\Debug\Brætspils butikken.exe
+C:\Users\buch_\OneDrive\Skrivebord\Github Projekter\Brætspils butikken\Brætspils butikken\obj\Debug\Brætspils butikken.pdb
+C:\Users\buch_\OneDrive\Skrivebord\Github Projekter\Brætspils butikken\Brætspils butikken\bin\Debug\System.Buffers.dll
+C:\Users\buch_\OneDrive\Skrivebord\Github Projekter\Brætspils butikken\Brætspils butikken\bin\Debug\System.Memory.dll
+C:\Users\buch_\OneDrive\Skrivebord\Github Projekter\Brætspils butikken\Brætspils butikken\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\buch_\OneDrive\Skrivebord\Github Projekter\Brætspils butikken\Brætspils butikken\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\buch_\OneDrive\Skrivebord\Github Projekter\Brætspils butikken\Brætspils butikken\bin\Debug\System.Text.Json.dll
+C:\Users\buch_\OneDrive\Skrivebord\Github Projekter\Brætspils butikken\Brætspils butikken\bin\Debug\System.ValueTuple.dll
+C:\Users\buch_\OneDrive\Skrivebord\Github Projekter\Brætspils butikken\Brætspils butikken\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\buch_\OneDrive\Skrivebord\Github Projekter\Brætspils butikken\Brætspils butikken\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\buch_\OneDrive\Skrivebord\Github Projekter\Brætspils butikken\Brætspils butikken\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\buch_\OneDrive\Skrivebord\Github Projekter\Brætspils butikken\Brætspils butikken\bin\Debug\System.Buffers.xml
+C:\Users\buch_\OneDrive\Skrivebord\Github Projekter\Brætspils butikken\Brætspils butikken\bin\Debug\System.Memory.xml
+C:\Users\buch_\OneDrive\Skrivebord\Github Projekter\Brætspils butikken\Brætspils butikken\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\buch_\OneDrive\Skrivebord\Github Projekter\Brætspils butikken\Brætspils butikken\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\buch_\OneDrive\Skrivebord\Github Projekter\Brætspils butikken\Brætspils butikken\obj\Debug\Br_tspil.0DF05422.Up2Date
