@@ -5,5 +5,12 @@
     "Price": 20,
     "Quantity": 2,
     "GameType": "Strategi"
+  },
+  {
+    "Title": "Catan",
+    "Condition": "Ny",
+    "Price": 250,
+    "Quantity": 1,
+    "GameType": "Strategi"
   }
 ]

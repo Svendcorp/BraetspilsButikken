@@ -35,7 +35,7 @@ namespace Brætspils_butikken
                 switch (choice)
                 {
                     case "1":
-                        AddBoardGame();
+                        inventory.AddBoardGame();
                         break;
                     case "2":
                         RemoveBoardGame();
@@ -50,40 +50,8 @@ namespace Brætspils_butikken
                     default:
                         Console.WriteLine("Ugyldigt valg, prøv igen");
                         break;
-
                 }
-
             }
-        }
-
-        public void AddBoardGame()
-        {
-            Console.WriteLine("Indtast titel: ");
-            string title = Console.ReadLine();
-
-            Console.WriteLine("Indtast stand (Ny, Brugt, Slidt): ");
-            string condition = Console.ReadLine();
-
-            Console.WriteLine("Indtast pris: ");
-            decimal price = decimal.Parse(Console.ReadLine());
-
-            Console.WriteLine("Indtast antal som tilføjes");
-            int quantity = int.Parse(Console.ReadLine());
-
-            Console.WriteLine("Indtast spiltype (Fx Strategi, Simulation, Familie): ");
-            string gameType = Console.ReadLine();
-
-            //Opretter nyt spil
-            BoardGame game = new BoardGame(title, condition, price, quantity, gameType);
-            
-            //Tilføjer spillet til lageret
-            inventory.Addgame(game);
-
-            //Gemmer spillet i tekstfilen
-            inventory.SaveToFile();
-
-
-            Console.WriteLine("Brætspil tilføjet og gemt!");
         }
 
         private void RemoveBoardGame()
@@ -91,7 +59,6 @@ namespace Brætspils_butikken
             Console.WriteLine("Indtast titlen på spillet du gerne vil fjerne: ");
             string title = Console.ReadLine();
             inventory.RemoveGame(title);
-
         }
     }
 }

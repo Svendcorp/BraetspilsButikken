@@ -19,12 +19,31 @@ namespace Brætspils_butikken
         }
 
 
-        //add a new game to inventory
-        public void Addgame(BoardGame game)
+        //Add a new game to inventory
+        
+        public void AddBoardGame()
         {
+            Console.WriteLine("Indtast titel: ");
+            string title = Console.ReadLine();
+
+            Console.WriteLine("Indtast stand (Ny, Brugt, Slidt): ");
+            string condition = Console.ReadLine();
+
+            Console.WriteLine("Indtast pris: ");
+            decimal price = decimal.Parse(Console.ReadLine());
+
+            Console.WriteLine("Indtast antal som tilføjes");
+            int quantity = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Indtast spiltype (Fx Strategi, Simulation, Familie): ");
+            string gameType = Console.ReadLine();
+
+            // Opretter et nyt spil
+            BoardGame game = new BoardGame(title, condition, price, quantity, gameType);
+
             games.Add(game);
             SaveToFile(); // saves the changes to File.
-            Console.WriteLine($"Bræspillet '(game.Title)' er tilføjet til lageret.");
+            Console.WriteLine($"Brætspillet '{game.Title}' er tilføjet til lageret.");
         }
 
         //Remove a game from inventory
