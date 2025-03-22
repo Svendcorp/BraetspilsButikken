@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Brætspils_butikken
 {
-    public class Reservation
+    class Search
     {
     }
 }

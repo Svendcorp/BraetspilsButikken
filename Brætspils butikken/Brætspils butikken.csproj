@@ -59,8 +59,7 @@
   <ItemGroup>
     <Compile Include="BoardGame.cs" />
     <Compile Include="Inventory.cs" />
-    <Compile Include="Reservation.cs" />
-    <Compile Include="Receipt.cs" />
+    <Compile Include="Search.cs" />
     <Compile Include="UserInterface.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
