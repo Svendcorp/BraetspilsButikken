@@ -81,6 +81,71 @@ namespace Brætspils_butikken
             }
         }
 
+        public void EditGame(string title)
+        {
+            BoardGame gameToEdit = games.Find(g => g.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
+            if (gameToEdit != null)
+            {
+                Console.WriteLine($"Redigerer {title}");
+                Console.WriteLine("Tryk Enter for at beholde den nuværende værdi");
+
+                Console.WriteLine($"Nuværende stand: {gameToEdit.Condition}");
+                Console.Write("Ny stand (Ny, God, Battle-Scarred): ");
+                string newCondition = Console.ReadLine();
+                if (!string.IsNullOrWhiteSpace(newCondition))
+                {
+                    gameToEdit.Condition = newCondition;
+                }
+
+                Console.WriteLine($"Nuværende pris: {gameToEdit.Price}");
+                Console.Write("Ny pris: ");
+                string newPriceStr = Console.ReadLine();
+                if (!string.IsNullOrWhiteSpace(newPriceStr) && decimal.TryParse(newPriceStr, out decimal newPrice))
+                {
+                    gameToEdit.Price = newPrice;
+                }
+
+                Console.WriteLine($"Nuværende antal: {gameToEdit.Quantity}");
+                Console.Write("Nyt antal: ");
+                string newQuantityStr = Console.ReadLine();
+                if (!string.IsNullOrWhiteSpace(newQuantityStr) && int.TryParse(newQuantityStr, out int newQuantity))
+                {
+                    gameToEdit.Quantity = newQuantity;
+                }
+
+                Console.WriteLine($"Nuværende spiltype: {gameToEdit.GameType}");
+                Console.Write("Ny spiltype: ");
+                string newGameType = Console.ReadLine();
+                if (!string.IsNullOrWhiteSpace(newGameType))
+                {
+                    gameToEdit.GameType = newGameType;
+                }
+
+                Console.WriteLine($"Nuværende minimum antal spillere: {gameToEdit.MinPlayers}");
+                Console.Write("Nyt minimum antal spillere: ");
+                string newMinPlayersStr = Console.ReadLine();
+                if (!string.IsNullOrWhiteSpace(newMinPlayersStr) && int.TryParse(newMinPlayersStr, out int newMinPlayers))
+                {
+                    gameToEdit.MinPlayers = newMinPlayers;
+                }
+
+                Console.WriteLine($"Nuværende maksimum antal spillere: {gameToEdit.MaxPlayers}");
+                Console.Write("Nyt maksimum antal spillere: ");
+                string newMaxPlayersStr = Console.ReadLine();
+                if (!string.IsNullOrWhiteSpace(newMaxPlayersStr) && int.TryParse(newMaxPlayersStr, out int newMaxPlayers))
+                {
+                    gameToEdit.MaxPlayers = newMaxPlayers;
+                }
+
+                SaveToFile();
+                Console.WriteLine($"Brætspillet '{title}' er blevet opdateret");
+            }
+            else
+            {
+                Console.WriteLine($"Brætspillet '{title}' blev ikke fundet i lageret");
+            }
+        }
+
         public void SaveToFile()
         {
             string Json = JsonSerializer.Serialize(games, new JsonSerializerOptions { WriteIndented = true });
