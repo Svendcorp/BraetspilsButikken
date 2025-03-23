@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{F5BB7B8F-CDD0-4E68-82E0-CD6042746D68}|Br\u00E6tspils butikken\\Br\u00E6tspils butikken.csproj|solutionrelative:br\u00E6tspils butikken\\userinterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F5BB7B8F-CDD0-4E68-82E0-CD6042746D68}|Br\u00E6tspils butikken\\Br\u00E6tspils butikken.csproj|c:\\users\\peter\\onedrive\\dokumenter\\braetspilsbutikken\\br\u00E6tspils butikken\\search.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F5BB7B8F-CDD0-4E68-82E0-CD6042746D68}|Br\u00E6tspils butikken\\Br\u00E6tspils butikken.csproj|C:\\Users\\peter\\OneDrive\\Dokumenter\\BraetspilsButikken\\br\u00E6tspils butikken\\search.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F5BB7B8F-CDD0-4E68-82E0-CD6042746D68}|Br\u00E6tspils butikken\\Br\u00E6tspils butikken.csproj|solutionrelative:br\u00E6tspils butikken\\search.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -46,8 +46,7 @@
               "RelativeToolTip": "Br\u00E6tspils butikken\\Search.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-22T20:10:39.61Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-22T20:10:39.61Z"
             },
             {
               "$type": "Document",
@@ -59,8 +58,7 @@
               "RelativeToolTip": "Br\u00E6tspils butikken\\Program.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-15T11:44:36.725Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-15T11:44:36.725Z"
             },
             {
               "$type": "Document",
@@ -70,7 +68,7 @@
               "RelativeDocumentMoniker": "Br\u00E6tspils butikken\\UserInterface.cs",
               "ToolTip": "C:\\Users\\peter\\OneDrive\\Dokumenter\\BraetspilsButikken\\Br\u00E6tspils butikken\\UserInterface.cs",
               "RelativeToolTip": "Br\u00E6tspils butikken\\UserInterface.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAswGkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACYAAAAAAAAAAAAgwEkAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-15T12:03:58.687Z",
               "EditorCaption": ""
@@ -85,8 +83,7 @@
               "RelativeToolTip": "Br\u00E6tspils butikken\\Inventory.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-15T11:50:19.528Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-15T11:50:19.528Z"
             },
             {
               "$type": "Document",

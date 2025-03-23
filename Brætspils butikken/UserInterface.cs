@@ -18,10 +18,9 @@ namespace Brætspils_butikken
             inventory = new Inventory();
         }
 
-        public void Start()
+        private void MainMenu()
         {
-
-            //Menu Overview
+            Console.Clear();
             Console.WriteLine("\n=== Admin Menu ===========");
             Console.WriteLine(" 1. Add Game");
             Console.WriteLine(" 2. Delete Game");
@@ -34,54 +33,75 @@ namespace Brætspils_butikken
             Console.WriteLine();
             Console.WriteLine(" 7. Exit");
             Console.WriteLine();
+        }
 
-            //Switch
+        public void Start()
+        {
 
-            bool keepGoing = true;
-            while (keepGoing == true)
+            MainMenu();
+
+            // Main Menu Switch
+            bool keepGoingMenu = true;
+            while (keepGoingMenu == true)
             {
                 var choice = Console.ReadKey();
                 Console.WriteLine();
+                Console.Clear();
 
                 switch (choice.KeyChar)
                 {
                     case '1':
+                        Console.Clear();
                         AddGame();
+                        MainMenu();
                         break;
 
                     case '2':
+                        Console.Clear();
                         DeleteGame();
+                        MainMenu();
                         break;
 
                     case '3':
+                        Console.Clear();
                         EditGame();
+                        MainMenu();
                         break;
 
                     case '4':
+                        Console.Clear();
                         ShowStorage();
+                        MainMenu();
                         break;
 
                     case '5':
+                        Console.Clear();
                         ReserveGame();
+                        MainMenu();
                         break;
 
                     case '6':
+                        Console.Clear();
                         ReservationList();
+                        MainMenu();
                         break;
 
                     case '7':
+                        Console.Clear();
                         Exit();
-
                         break;
 
                     default:
-                        Console.WriteLine(" Is an Invalid input");
+                        MainMenu();
+                        Console.WriteLine("Invalid input");
                         break;
+
                 }
 
-            }
 
+            }
         }
+
         //=== Admin Menu ===========
         private void AddGame()
         {
@@ -170,13 +190,11 @@ namespace Brætspils_butikken
 
                 if ('1' == choice.KeyChar)
                 {
-
-                    Environment.Exit(0); //Exit Console
+                    Environment.Exit(0); // Exit Console
                 }
                 else if ('2' == choice.KeyChar)
                 {
-
-                    Environment.Exit(0); //Exit Console
+                    Environment.Exit(0); // Exit Console
                 }
                 else
                 {
