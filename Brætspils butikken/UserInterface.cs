@@ -105,11 +105,13 @@ namespace Brætspils_butikken
         //=== Admin Menu ===========
         private void MenuAddGame()
         {
+            Console.WriteLine("=== Add Game ===");
 
         }
 
         private void MenuDeleteGame()
         {
+            Console.WriteLine("=== Delete Game ===");
 
         }
 
@@ -123,7 +125,7 @@ namespace Brætspils_butikken
 
         private void MenuShowStorage()
         {
-            Console.WriteLine();
+            Console.WriteLine("=== Show Storage ===");
             Console.WriteLine(" 1. Search");
             Console.WriteLine(" 2. Print List");
 
@@ -150,12 +152,13 @@ namespace Brætspils_butikken
         //=== Reservation Menu =====
         private void MenuReserveGame()
         {
+            Console.WriteLine("=== Reserve Game ===");
 
         }
 
         private void MenuReservationList()
         {
-            Console.WriteLine();
+            Console.WriteLine("=== Reservation List ===");
             Console.WriteLine(" 1. Search");
             Console.WriteLine(" 2. Print List");
 
@@ -182,7 +185,8 @@ namespace Brætspils_butikken
         //Exit
         private void MenuExit()
         {
-            Console.WriteLine("Save data before exit?");
+            Console.WriteLine("=== Exit ===");
+            Console.WriteLine(" Save data before exit?");
             Console.WriteLine(" 1. Save");
             Console.WriteLine(" 2. Dont Save");
 
