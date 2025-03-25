@@ -115,7 +115,10 @@ namespace Brætspils_butikken
 
         private void MenuEditGame()
         {
-        
+            Console.WriteLine("\n=== Rediger Brætspil ===");
+            Console.WriteLine("\nIndtast titlen på det spil, du vil redigere:");
+            string title = Console.ReadLine();
+            inventory.EditGame(title);
         }
 
         private void MenuShowStorage()
