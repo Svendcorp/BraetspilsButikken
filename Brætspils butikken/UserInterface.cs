@@ -52,43 +52,43 @@ namespace Brætspils_butikken
                 {
                     case '1':
                         Console.Clear();
-                        AddGame();
+                        MenuAddGame();
                         MainMenu();
                         break;
 
                     case '2':
                         Console.Clear();
-                        DeleteGame();
+                        MenuDeleteGame();
                         MainMenu();
                         break;
 
                     case '3':
                         Console.Clear();
-                        EditGame();
+                        MenuEditGame();
                         MainMenu();
                         break;
 
                     case '4':
                         Console.Clear();
-                        ShowStorage();
+                        MenuShowStorage();
                         MainMenu();
                         break;
 
                     case '5':
                         Console.Clear();
-                        ReserveGame();
+                        MenuReserveGame();
                         MainMenu();
                         break;
 
                     case '6':
                         Console.Clear();
-                        ReservationList();
+                        MenuReservationList();
                         MainMenu();
                         break;
 
                     case '7':
                         Console.Clear();
-                        Exit();
+                        MenuExit();
                         break;
 
                     default:
@@ -103,22 +103,22 @@ namespace Brætspils_butikken
         }
 
         //=== Admin Menu ===========
-        private void AddGame()
+        private void MenuAddGame()
         {
 
         }
 
-        private void DeleteGame()
+        private void MenuDeleteGame()
         {
 
         }
 
-        private void EditGame()
+        private void MenuEditGame()
         {
-
+        
         }
 
-        private void ShowStorage()
+        private void MenuShowStorage()
         {
             Console.WriteLine();
             Console.WriteLine(" 1. Search");
@@ -145,12 +145,12 @@ namespace Brætspils_butikken
         }
 
         //=== Reservation Menu =====
-        private void ReserveGame()
+        private void MenuReserveGame()
         {
 
         }
 
-        private void ReservationList()
+        private void MenuReservationList()
         {
             Console.WriteLine();
             Console.WriteLine(" 1. Search");
@@ -177,7 +177,7 @@ namespace Brætspils_butikken
         }
 
         //Exit
-        private void Exit()
+        private void MenuExit()
         {
             Console.WriteLine("Save data before exit?");
             Console.WriteLine(" 1. Save");
