@@ -3,3 +3,5 @@
 *.json
 Brætspils butikken/bin/
 Brætspils butikken/obj/
+/Brætspils butikken/obj
+/.vs
