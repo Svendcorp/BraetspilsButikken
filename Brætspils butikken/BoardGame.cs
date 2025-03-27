@@ -20,14 +20,12 @@ namespace Brætspils_butikken
 
         internal static int nextId = 1; //keep tack of the next ID, starts from 1
 
-        
-
         public BoardGame() { }
 
         //Constructor
         public BoardGame(Guid id, string title, string condition, decimal price, string gameType, int minPlayers, int maxPlayers)
         {
-            Id = Guid.NewGuid(); //generate unique ID
+            //generate unique ID
             Title = title;
             Condition = condition;
             Price = price;
@@ -38,7 +36,7 @@ namespace Brætspils_butikken
 
         public override string ToString()
         {
-            return $"{Id}: {Title} ({GameType}) - {Condition}, Pris: {Price} kr, Spillere: {MinPlayers}-{MaxPlayers}";
+            return $"{Id}: {Title} ({GameType}) - {Condition}, Price: {Price} kr, Players: {MinPlayers}-{MaxPlayers}";
         }
 
     }

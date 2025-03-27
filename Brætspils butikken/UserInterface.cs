@@ -111,15 +111,15 @@ namespace Brætspils_butikken
         private void MenuDeleteGame()
         {
             Console.WriteLine("=== Delete Game ===");
-            Console.WriteLine("Indtast titlen på spillet du gerne vil fjerne: ");
+            Console.WriteLine("Enter the title of the game you want to delete: ");
             string title = Console.ReadLine();
             inventory.RemoveGame(title);
         }
 
         private void MenuEditGame()
         {
-            Console.WriteLine("\n=== Rediger Brætspil ===");
-            Console.WriteLine("\nIndtast titlen på det spil, du vil redigere:");
+            Console.WriteLine("\n=== Edit Game ===");
+            Console.WriteLine("\nEnter the title of the game you want to edit:");
             string title = Console.ReadLine();
             inventory.EditGame(title);
         }
@@ -127,33 +127,48 @@ namespace Brætspils_butikken
 
         private void MenuShowStorage()
         {
-            Console.WriteLine("=== Show Storage ===");
-            Console.WriteLine(" 1. Search");
-            Console.WriteLine(" 2. Print List");
-            Console.WriteLine(" 3. Exit");
-
             bool keepGoing = true;
-            while (keepGoing == true)
+            while (keepGoing)
             {
-                var choice = Console.ReadKey(intercept:true);
+                Console.Clear();
+                Console.WriteLine("=== Show Storage ===");
+                Console.WriteLine(" 1. Search");
+                Console.WriteLine(" 2. Print List");
+                Console.WriteLine(" 3. Exit");
+                Console.Write("\nVælg en mulighed: ");
 
-                if ('1' == choice.KeyChar)
-                {
-                    keepGoing = false;
-                }
-                else if ('2' == choice.KeyChar)
-                {
-                    Console.WriteLine("=== Storage ===");
-                    inventory.ShowInventory();
-                }
-                else if ('3' == choice.KeyChar)
-                {
-                    keepGoing = false;
-                }
+                var choice = Console.ReadKey(intercept: true);
+                Console.WriteLine();
 
-                else
+                switch (choice.KeyChar)
                 {
-                    Console.WriteLine(" Is an Invalid input");
+                    case '1':
+                        Console.Clear();
+                        Console.WriteLine("=== Search for game ===");
+                        Console.Write("Enter search term: ");
+                        string searchTerm = Console.ReadLine();
+                        if (!string.IsNullOrWhiteSpace(searchTerm))
+                        {
+                            inventory.FindGame(searchTerm);
+                        }
+                        break;
+
+                    case '2':
+                        Console.Clear();
+                        Console.WriteLine("=== Storage ===");
+                        inventory.ShowInventory();
+                        Console.WriteLine("\nPress a key to continue...");
+                        Console.ReadKey();
+                        break;
+
+                    case '3':
+                        keepGoing = false;
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid choice. Press a key to continue...");
+                        Console.ReadKey();
+                        break;
                 }
             }
         }
