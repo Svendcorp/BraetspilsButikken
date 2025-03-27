@@ -26,18 +26,19 @@ namespace Brætspils_butikken
         {
             Console.Clear(); //Title
             Console.WriteLine("=== Add Game ===\n Insert title: ");
+            loopTitle:
             string title = Console.ReadLine();
             if (string.IsNullOrWhiteSpace(title))
             {
                 Console.WriteLine("Invalid input");
-                return;
+                goto loopTitle;
             }
 
             Console.Clear(); //Condition
             Console.WriteLine("=== Add Game ===\n Insert condition\n 1. Good\n 2. Decent \n 3. Bad\n");
             string condition = "PlaceHolder";
-
-            var conditionSwitch = Console.ReadKey(intercept:true).KeyChar;
+            loopCondition:
+            var conditionSwitch = Console.ReadKey(intercept: true).KeyChar;
             switch (conditionSwitch)
             {
                 case '1':
@@ -52,7 +53,7 @@ namespace Brætspils_butikken
                     break;
                 default:
                     Console.WriteLine("Invalid input");
-                    break;
+                    goto loopCondition;
             }
 
             Console.Clear(); //Price
@@ -67,8 +68,13 @@ namespace Brætspils_butikken
           
             Console.Clear(); //Genre
             Console.WriteLine("=== Add Game ===\n Insert Genre \n (Fx Strategy, Simulation, Familly)");
+            loopGenre:
             string gameType = Console.ReadLine().ToLower().ToUpperInvariant();
-
+            if (string.IsNullOrWhiteSpace(gameType))
+            {
+                Console.WriteLine("Invalid input");
+                goto loopGenre;
+            }
 
             Console.Clear(); //MinPlayers
             Console.WriteLine("=== Add Game ===\n Insert maximum players: ");
