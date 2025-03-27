@@ -18,8 +18,6 @@ namespace Brætspils_butikken
         public int MinPlayers { get; set; }
         public int MaxPlayers { get; set; }
 
-        
-
         public BoardGame() { }
 
         //Constructor to create new boardgame
@@ -36,7 +34,7 @@ namespace Brætspils_butikken
 
         public override string ToString()
         {
-            return $"[{Id}] {Title} ({GameType}) - {Condition}, Pris: {Price} kr, Spillere: {MinPlayers}-{MaxPlayers}";
+            return $"[{Id}]: {Title} ({GameType}) - {Condition}, Price: {Price} kr, Players: {MinPlayers}-{MaxPlayers}";
         }
 
     }
