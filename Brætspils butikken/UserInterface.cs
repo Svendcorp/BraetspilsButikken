@@ -105,8 +105,6 @@ namespace Brætspils_butikken
         //=== Admin Menu ===========
         private void MenuAddGame()
         {
-            Console.Clear();
-            Console.WriteLine("=== Add Game ===");
             inventory.AddGame();
         }
 
@@ -125,6 +123,7 @@ namespace Brætspils_butikken
             string title = Console.ReadLine();
             inventory.EditGame(title);
         }
+
 
         private void MenuShowStorage()
         {

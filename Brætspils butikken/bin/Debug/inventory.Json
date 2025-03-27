@@ -1,22 +1,12 @@
 [
   {
-    "Id": 0,
-    "Title": "Catan",
-    "Condition": "Ny",
-    "Price": 249,
-    "Quantity": 1,
-    "GameType": "Strategi",
-    "MinPlayers": 2,
-    "MaxPlayers": 4
-  },
-  {
-    "Id": 0,
-    "Title": "catan",
-    "Condition": "ny",
-    "Price": 25,
-    "Quantity": 1,
-    "GameType": "strategi",
-    "MinPlayers": 2,
-    "MaxPlayers": 4
+    "Id": 1,
+    "Title": "Abe",
+    "Condition": "Bad",
+    "Price": 52,
+    "Quantity": 0,
+    "GameType": "NINJASPIL",
+    "MinPlayers": 5,
+    "MaxPlayers": 8
   }
 ]
