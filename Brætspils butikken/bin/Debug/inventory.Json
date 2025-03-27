@@ -1,22 +1,122 @@
 [
   {
-    "Id": "cde8b2e3",
-    "Title": "Catan",
-    "Condition": "Decent",
-    "Price": 129,
-    "Quantity": 0,
-    "GameType": "STRATEGY",
-    "MinPlayers": 2,
-    "MaxPlayers": 4
-  },
-  {
-    "Id": "6f085cbe",
-    "Title": "Chess",
+    "Id": "b627bf01",
+    "Title": "Sequence",
     "Condition": "Good",
     "Price": 49,
     "Quantity": 0,
-    "GameType": "STRATEGY",
+    "GameType": "FAMILLY",
     "MinPlayers": 2,
-    "MaxPlayers": 2
+    "MaxPlayers": 6
+  },
+  {
+    "Id": "fee50a59",
+    "Title": "Sequence",
+    "Condition": "Bad",
+    "Price": 19,
+    "Quantity": 0,
+    "GameType": "FAMILLY",
+    "MinPlayers": 2,
+    "MaxPlayers": 6
+  },
+  {
+    "Id": "1882b051",
+    "Title": "Sequence",
+    "Condition": "Bad",
+    "Price": 19,
+    "Quantity": 0,
+    "GameType": "FAMILLY",
+    "MinPlayers": 2,
+    "MaxPlayers": 6
+  },
+  {
+    "Id": "be52b20e",
+    "Title": "Sequence Junior",
+    "Condition": "Bad",
+    "Price": 19,
+    "Quantity": 0,
+    "GameType": "FAMILLY",
+    "MinPlayers": 2,
+    "MaxPlayers": 6
+  },
+  {
+    "Id": "fc39e711",
+    "Title": "Sequence Travel",
+    "Condition": "Good",
+    "Price": 39,
+    "Quantity": 0,
+    "GameType": "FAMILLY",
+    "MinPlayers": 2,
+    "MaxPlayers": 6
+  },
+  {
+    "Id": "c6ebb588",
+    "Title": "Sequence Travel",
+    "Condition": "Good",
+    "Price": 39,
+    "Quantity": 0,
+    "GameType": "FAMILLY",
+    "MinPlayers": 2,
+    "MaxPlayers": 6
+  },
+  {
+    "Id": "39c1738e",
+    "Title": "Ticket To Ride - Berlin",
+    "Condition": "Good",
+    "Price": 79,
+    "Quantity": 0,
+    "GameType": "FAMILLY",
+    "MinPlayers": 2,
+    "MaxPlayers": 6
+  },
+  {
+    "Id": "2c796035",
+    "Title": "Ticket To Ride - Berlin",
+    "Condition": "Good",
+    "Price": 79,
+    "Quantity": 0,
+    "GameType": "FAMILLY",
+    "MinPlayers": 2,
+    "MaxPlayers": 6
+  },
+  {
+    "Id": "ab7172de",
+    "Title": "Ticket To Ride - Berlin",
+    "Condition": "Good",
+    "Price": 79,
+    "Quantity": 0,
+    "GameType": "FAMILLY",
+    "MinPlayers": 2,
+    "MaxPlayers": 6
+  },
+  {
+    "Id": "c2559c1f",
+    "Title": "Ticket To Ride - Berlin",
+    "Condition": "Bad",
+    "Price": 29,
+    "Quantity": 0,
+    "GameType": "FAMILLY",
+    "MinPlayers": 2,
+    "MaxPlayers": 6
+  },
+  {
+    "Id": "01e9dd26",
+    "Title": "Ticket To Ride - Dansk",
+    "Condition": "Good",
+    "Price": 79,
+    "Quantity": 0,
+    "GameType": "FAMILLY",
+    "MinPlayers": 2,
+    "MaxPlayers": 6
+  },
+  {
+    "Id": "2a2cf301",
+    "Title": "Ticket To Ride - Dansk",
+    "Condition": "Good",
+    "Price": 79,
+    "Quantity": 0,
+    "GameType": "FAMILLY",
+    "MinPlayers": 2,
+    "MaxPlayers": 6
   }
 ]

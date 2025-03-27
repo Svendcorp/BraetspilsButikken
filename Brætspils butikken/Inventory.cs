@@ -27,6 +27,7 @@ namespace Brætspils_butikken
             {
                 gamesByTitle[game.Title] = game;
             }
+            //Add GameType aso.
         }
 
         //Add a new game to inventory
@@ -86,7 +87,7 @@ namespace Brætspils_butikken
             }
 
             Console.Clear(); //MinPlayers
-            Console.WriteLine("=== Add Game ===\n Insert maximum players: ");
+            Console.WriteLine("=== Add Game ===\n Insert minimum players: ");
             loopMinPlayers:
             string minPlayersStr = Console.ReadLine();
             if (!int.TryParse(minPlayersStr, out int minPlayers) || minPlayers < 0)
@@ -97,7 +98,7 @@ namespace Brætspils_butikken
 
 
             Console.Clear(); //MaxPlayers
-            Console.WriteLine("=== Add Game ===\n Insert minimum players: ");
+            Console.WriteLine("=== Add Game ===\n Insert maximum players: ");
             loopMaxPlayers:
             string maxPlayersStr = Console.ReadLine();
             if (!int.TryParse(maxPlayersStr, out int maxPlayers) || maxPlayers < 0)
@@ -230,6 +231,8 @@ namespace Brætspils_butikken
             var results = games.Where(g => 
                 g.Title.ToLower().Contains(searchTerm.ToLower()) ||
                 g.GameType.ToLower().Contains(searchTerm.ToLower())
+                //Add Search for ID
+                //Add Search for Price
             ).ToList();
 
             if (results.Count == 0)
