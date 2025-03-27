@@ -107,7 +107,7 @@ namespace Brætspils_butikken
         {
             Console.Clear();
             Console.WriteLine("=== Add Game ===");
-            inventory.AddGame();
+            inventory.AddBoardGame();
         }
 
         private void MenuDeleteGame()
