@@ -1,6 +1,6 @@
 [
   {
-    "Id": 1,
+    "Id": "00000000-0000-0000-0000-000000000000",
     "Title": "Abe",
     "Condition": "Bad",
     "Price": 52,
@@ -8,5 +8,15 @@
     "GameType": "NINJASPIL",
     "MinPlayers": 5,
     "MaxPlayers": 8
+  },
+  {
+    "Id": "264f1bb9-84e8-4594-956d-18ab27a95c13",
+    "Title": "Catan",
+    "Condition": "Good",
+    "Price": 149,
+    "Quantity": 0,
+    "GameType": "STRATEGY",
+    "MinPlayers": 2,
+    "MaxPlayers": 6
   }
 ]
