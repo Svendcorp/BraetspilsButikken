@@ -27,6 +27,11 @@ namespace Brætspils_butikken
             Console.Clear(); //Title
             Console.WriteLine("=== Add Game ===\n Insert title: ");
             string title = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(title))
+            {
+                Console.WriteLine("Invalid input");
+                return;
+            }
 
             Console.Clear(); //Condition
             Console.WriteLine("=== Add Game ===\n Insert condition\n 1. Good\n 2. Decent \n 3. Bad\n");
