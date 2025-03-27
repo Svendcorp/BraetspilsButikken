@@ -153,12 +153,19 @@ namespace Brætspils_butikken
         }
 
 
-        private void LoadFromFile()
+        public void LoadFromFile()
         {
-            if (File.Exists(FilePath))
-            {
+            if (File.Exists(FilePath)) return;
+             
                 string Json = File.ReadAllText(FilePath);
+            if (!string.IsNullOrWhiteSpace(Json))
+            { 
                 games = JsonSerializer.Deserialize<List<BoardGame>>(Json) ?? new List<BoardGame>();
+            }
+
+            if (games.Count > 0)
+            {
+                BoardGame.nextId = games.Max(g => g.Id) + 1;
             }
         }
 
