@@ -25,7 +25,7 @@ namespace Brætspils_butikken
         public BoardGame() { }
 
         //Constructor
-        public BoardGame(string title, string condition, decimal price, int quantity, string gameType, int minPlayers, int maxPlayers)
+        public BoardGame(int Id, string title, string condition, decimal price, int quantity, string gameType, int minPlayers, int maxPlayers)
         {
             Id = nextId++;
             Title = title;

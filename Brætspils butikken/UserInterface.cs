@@ -131,11 +131,12 @@ namespace Brætspils_butikken
             Console.WriteLine("=== Show Storage ===");
             Console.WriteLine(" 1. Search");
             Console.WriteLine(" 2. Print List");
+            Console.WriteLine(" 3. Exit");
 
             bool keepGoing = true;
             while (keepGoing == true)
             {
-                var choice = Console.ReadKey();
+                var choice = Console.ReadKey(intercept:true);
 
                 if ('1' == choice.KeyChar)
                 {
@@ -143,8 +144,14 @@ namespace Brætspils_butikken
                 }
                 else if ('2' == choice.KeyChar)
                 {
+                    Console.WriteLine("=== Storage ===");
+                    inventory.ShowInventory();
+                }
+                else if ('3' == choice.KeyChar)
+                {
                     keepGoing = false;
                 }
+
                 else
                 {
                     Console.WriteLine(" Is an Invalid input");

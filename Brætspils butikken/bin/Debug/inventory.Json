@@ -1,11 +1,21 @@
 [
   {
-    "Id": 1,
+    "Id": 0,
     "Title": "Catan",
-    "Condition": "God",
-    "Price": 239,
+    "Condition": "Ny",
+    "Price": 249,
     "Quantity": 1,
     "GameType": "Strategi",
+    "MinPlayers": 2,
+    "MaxPlayers": 4
+  },
+  {
+    "Id": 0,
+    "Title": "catan",
+    "Condition": "ny",
+    "Price": 25,
+    "Quantity": 1,
+    "GameType": "strategi",
     "MinPlayers": 2,
     "MaxPlayers": 4
   }

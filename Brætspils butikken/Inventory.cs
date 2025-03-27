@@ -23,6 +23,8 @@ namespace Brætspils_butikken
         
         public void AddGame()
         {
+            int Id = 15;
+
             Console.WriteLine("Indtast titel: ");
             string title = Console.ReadLine();
 
@@ -44,7 +46,7 @@ namespace Brætspils_butikken
             Console.WriteLine("Indtast maksimum antal spillere: ");
             int maxPlayers = int.Parse(Console.ReadLine());
 
-            BoardGame game = new BoardGame(title, condition, price, quantity, gameType, minPlayers, maxPlayers);
+            BoardGame game = new BoardGame(Id, title, condition, price, quantity, gameType, minPlayers, maxPlayers);
             games.Add(game);
             SaveToFile(); // saves the changes to File.
             Console.WriteLine($"\nBrætspillet '{game.Title}' er tilføjet til lageret.");
@@ -74,7 +76,6 @@ namespace Brætspils_butikken
             if (games.Count == 0)
             {
                 Console.WriteLine("Lageret er tomt");
-                Console.ReadKey();
                 return;
             }
 
@@ -82,7 +83,6 @@ namespace Brætspils_butikken
             foreach (var game in games)
             {
                 Console.WriteLine(game);
-                Console.ReadKey();
             }
         }
 
