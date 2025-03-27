@@ -107,13 +107,15 @@ namespace Brætspils_butikken
         {
             Console.Clear();
             Console.WriteLine("=== Add Game ===");
-            inventory.AddBoardGame();
+            inventory.AddGame();
         }
 
         private void MenuDeleteGame()
         {
             Console.WriteLine("=== Delete Game ===");
-
+            Console.WriteLine("Indtast titlen på spillet du gerne vil fjerne: ");
+            string title = Console.ReadLine();
+            inventory.RemoveGame(title);
         }
 
         private void MenuEditGame()
@@ -211,14 +213,6 @@ namespace Brætspils_butikken
             }
         }
 
-       
-        private void RemoveBoardGame()
-        {
-            Console.WriteLine("Indtast titlen på spillet du gerne vil fjerne: ");
-            string title = Console.ReadLine();
-            inventory.RemoveGame(title);
-        
-        }
     }
 }
 //test

@@ -21,7 +21,7 @@ namespace Brætspils_butikken
 
         //Add a new game to inventory
         
-        public void AddBoardGame()
+        public void AddGame()
         {
             Console.WriteLine("Indtast titel: ");
             string title = Console.ReadLine();
@@ -47,7 +47,8 @@ namespace Brætspils_butikken
             BoardGame game = new BoardGame(title, condition, price, quantity, gameType, minPlayers, maxPlayers);
             games.Add(game);
             SaveToFile(); // saves the changes to File.
-            Console.WriteLine($"Brætspillet '{game.Title}' er tilføjet til lageret.");
+            Console.WriteLine($"\nBrætspillet '{game.Title}' er tilføjet til lageret.");
+            Console.ReadKey();
         }
 
         //Remove a game from inventory
@@ -58,10 +59,12 @@ namespace Brætspils_butikken
             {
                 games.Remove(gameToRemove);
                 Console.WriteLine($"Brætspillet '{title}' er fjernet fra lageret");
+                Console.ReadKey();
             }
             else
             {
                 Console.WriteLine($"Brætspillet '{title}' blev ikke fundet i lageret");
+                Console.ReadKey();
             }
         }
 
@@ -71,6 +74,7 @@ namespace Brætspils_butikken
             if (games.Count == 0)
             {
                 Console.WriteLine("Lageret er tomt");
+                Console.ReadKey();
                 return;
             }
 
@@ -78,6 +82,7 @@ namespace Brætspils_butikken
             foreach (var game in games)
             {
                 Console.WriteLine(game);
+                Console.ReadKey();
             }
         }
 
@@ -86,11 +91,11 @@ namespace Brætspils_butikken
             BoardGame gameToEdit = games.Find(g => g.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
             if (gameToEdit != null)
             {
-                Console.WriteLine($"Redigerer {title}");
+                Console.WriteLine($"=== Redigerer \"{title}\" ===");
                 Console.WriteLine("Tryk Enter for at beholde den nuværende værdi");
 
                 Console.WriteLine($"Nuværende stand: {gameToEdit.Condition}");
-                Console.Write("Ny stand (Ny, God, Battle-Scarred): ");
+                Console.Write("Ny stand (Ny, God, Slidt): ");
                 string newCondition = Console.ReadLine();
                 if (!string.IsNullOrWhiteSpace(newCondition))
                 {
@@ -139,10 +144,12 @@ namespace Brætspils_butikken
 
                 SaveToFile();
                 Console.WriteLine($"Brætspillet '{title}' er blevet opdateret");
+                Console.ReadKey();
             }
             else
             {
                 Console.WriteLine($"Brætspillet '{title}' blev ikke fundet i lageret");
+                Console.ReadKey();
             }
         }
 

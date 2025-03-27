@@ -1,16 +1,12 @@
 [
   {
-    "Title": "Kinesisk skak",
-    "Condition": "Brugt",
-    "Price": 20,
-    "Quantity": 2,
-    "GameType": "Strategi"
-  },
-  {
+    "Id": 1,
     "Title": "Catan",
-    "Condition": "Ny",
-    "Price": 250,
+    "Condition": "God",
+    "Price": 239,
     "Quantity": 1,
-    "GameType": "Strategi"
+    "GameType": "Strategi",
+    "MinPlayers": 2,
+    "MaxPlayers": 4
   }
 ]
