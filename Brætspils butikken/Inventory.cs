@@ -13,6 +13,8 @@ namespace Brætspils_butikken
         private List<BoardGame> games = new List<BoardGame>();
         private const string FilePath = "inventory.Json"; // Det er her data gemmes fra inventory. Det gemmes i en Json tekstfil. 
 
+        public Guid Id { get; private set; }
+
         public Inventory()
         {
             LoadFromFile(); // indlæses hver gang programmet starter.
@@ -23,7 +25,7 @@ namespace Brætspils_butikken
         
         public void AddGame()
         {
-            int Id = 15;
+            
 
             Console.WriteLine("Indtast titel: ");
             string title = Console.ReadLine();
@@ -162,20 +164,14 @@ namespace Brætspils_butikken
 
         public void LoadFromFile()
         {
-            if (File.Exists(FilePath)) return;
-             
-                string Json = File.ReadAllText(FilePath);
-            if (!string.IsNullOrWhiteSpace(Json))
-            { 
-                games = JsonSerializer.Deserialize<List<BoardGame>>(Json) ?? new List<BoardGame>();
-            }
-
-            if (games.Count > 0)
+            if (File.Exists(FilePath))
             {
-                BoardGame.nextId = games.Max(g => g.Id) + 1;
+                string json = File.ReadAllText(FilePath);
+                if (!string.IsNullOrWhiteSpace(json))
+                {
+                    games = JsonSerializer.Deserialize<List<BoardGame>>(json) ?? new List<BoardGame>();
+                }
             }
         }
-
-
     }
 }
