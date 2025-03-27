@@ -23,28 +23,47 @@ namespace Brætspils_butikken
         
         public void AddGame()
         {
-            Console.WriteLine("Indtast titel: ");
+            Console.Clear(); //Title
+            Console.WriteLine("=== Add Game ===\n Insert title: ");
             string title = Console.ReadLine();
 
-            Console.WriteLine("Indtast stand (Ny, Brugt, Slidt): ");
-            string condition = Console.ReadLine();
+            Console.Clear(); //Condition
+            Console.WriteLine("=== Add Game ===\n Insert condition\n 1. Good\n 2. Decent \n3. Bad\n");
+            string condition = "PlaceHolder";
 
-            Console.WriteLine("Indtast pris: ");
+            int conditionSwitch = int.Parse(Console.ReadLine());
+            switch (conditionSwitch)
+            {
+                case 1:
+                    condition = "Good";
+                    break;
+                case 2:
+                    condition = "Decent";
+                    break;
+                case 3:
+                    condition = "Bad";
+                    Console.WriteLine("Condition: Bad");
+                    break;
+                default:
+                    Console.WriteLine("Invalid input");
+                    break;
+            }
+
+            Console.Clear(); //Price
+            Console.WriteLine("=== Add Game ===\n Insert price: ");
             decimal price = decimal.Parse(Console.ReadLine());
 
-            Console.WriteLine("Indtast antal som tilføjes");
-            int quantity = int.Parse(Console.ReadLine());
+            Console.Clear(); //Genre
+            Console.WriteLine("=== Add Game ===\n Insert Genre (Fx Strategy, Simulation, Familly): ");
+            string gameType = Console.ReadLine().ToLower().ToUpperInvariant();
 
-            Console.WriteLine("Indtast spiltype (Fx Strategi, Simulation, Familie): ");
-            string gameType = Console.ReadLine();
-
-            Console.WriteLine("Indtast minimum antal spillere: ");
+            Console.WriteLine("=== Add Game ===\n Indtast minimum antal spillere: ");
             int minPlayers = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Indtast maksimum antal spillere: ");
+            Console.WriteLine("=== Add Game ===\n Indtast maksimum antal spillere: ");
             int maxPlayers = int.Parse(Console.ReadLine());
 
-            BoardGame game = new BoardGame(title, condition, price, quantity, gameType, minPlayers, maxPlayers);
+            BoardGame game = new BoardGame(title, condition, price, gameType, minPlayers, maxPlayers);
             games.Add(game);
             SaveToFile(); // saves the changes to File.
             Console.WriteLine($"\nBrætspillet '{game.Title}' er tilføjet til lageret.");

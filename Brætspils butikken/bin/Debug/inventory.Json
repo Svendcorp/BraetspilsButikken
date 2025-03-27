@@ -1,12 +1,12 @@
 [
   {
     "Id": 1,
-    "Title": "Catan",
-    "Condition": "God",
-    "Price": 239,
-    "Quantity": 1,
-    "GameType": "Strategi",
-    "MinPlayers": 2,
-    "MaxPlayers": 4
+    "Title": "Abe",
+    "Condition": "Bad",
+    "Price": 52,
+    "Quantity": 0,
+    "GameType": "NINJASPIL",
+    "MinPlayers": 5,
+    "MaxPlayers": 8
   }
 ]

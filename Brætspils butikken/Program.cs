@@ -15,7 +15,6 @@ namespace Brætspils_butikken
            UserInterface ui = new UserInterface();
            ui.Start();
 
-
            Console.ReadLine();
         }
     }
