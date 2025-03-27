@@ -150,7 +150,6 @@ namespace Brætspils_butikken
                 {
                     keepGoing = false;
                 }
-
                 else
                 {
                     Console.WriteLine(" Is an Invalid input");

@@ -29,19 +29,19 @@ namespace Brætspils_butikken
             string title = Console.ReadLine();
 
             Console.Clear(); //Condition
-            Console.WriteLine("=== Add Game ===\n Insert condition\n 1. Good\n 2. Decent \n3. Bad\n");
+            Console.WriteLine("=== Add Game ===\n Insert condition\n 1. Good\n 2. Decent \n 3. Bad\n");
             string condition = "PlaceHolder";
 
-            int conditionSwitch = int.Parse(Console.ReadLine());
+            var conditionSwitch = Console.ReadKey(intercept:true).KeyChar;
             switch (conditionSwitch)
             {
-                case 1:
+                case '1':
                     condition = "Good";
                     break;
-                case 2:
+                case '2':
                     condition = "Decent";
                     break;
-                case 3:
+                case '3':
                     condition = "Bad";
                     Console.WriteLine("Condition: Bad");
                     break;
@@ -52,21 +52,43 @@ namespace Brætspils_butikken
 
             Console.Clear(); //Price
             Console.WriteLine("=== Add Game ===\n Insert price: ");
-            decimal price = decimal.Parse(Console.ReadLine());
-
+            loopPrice:
+            string priceStr = Console.ReadLine();
+            if (!decimal.TryParse(priceStr, out decimal price) || price < 0)
+            {
+                Console.WriteLine(" Invalid input");
+                goto loopPrice;
+            }
+          
             Console.Clear(); //Genre
-            Console.WriteLine("=== Add Game ===\n Insert Genre (Fx Strategy, Simulation, Familly): ");
+            Console.WriteLine("=== Add Game ===\n Insert Genre \n (Fx Strategy, Simulation, Familly)");
             string gameType = Console.ReadLine().ToLower().ToUpperInvariant();
 
-            Console.WriteLine("=== Add Game ===\n Indtast minimum antal spillere: ");
-            int minPlayers = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("=== Add Game ===\n Indtast maksimum antal spillere: ");
-            int maxPlayers = int.Parse(Console.ReadLine());
+            Console.Clear(); //MinPlayers
+            Console.WriteLine("=== Add Game ===\n Insert maximum players: ");
+            loopMinPlayers:
+            string minPlayersStr = Console.ReadLine();
+            if (!int.TryParse(minPlayersStr, out int minPlayers) || minPlayers < 0)
+            {
+                Console.WriteLine(" Invalid input");
+                goto loopMinPlayers;
+            }
+
+            Console.Clear(); //MaxPlayers
+            Console.WriteLine("=== Add Game ===\n Insert minimum players: ");
+            loopMaxPlayers:
+            string maxPlayersStr = Console.ReadLine();
+            if (!int.TryParse(maxPlayersStr, out int maxPlayers) || maxPlayers < 0)
+            {
+                Console.WriteLine(" Invalid input");
+                goto loopMaxPlayers;
+            }
 
             BoardGame game = new BoardGame(title, condition, price, gameType, minPlayers, maxPlayers);
             games.Add(game);
             SaveToFile(); // saves the changes to File.
+            Console.Clear();
             Console.WriteLine($"\nBrætspillet '{game.Title}' er tilføjet til lageret.");
             Console.ReadKey();
         }
