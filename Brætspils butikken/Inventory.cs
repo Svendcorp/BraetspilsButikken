@@ -85,6 +85,16 @@ namespace Brætspils_butikken
                 goto loopMaxPlayers;
             }
 
+            Console.Clear(); //MaxPlayers
+            Console.WriteLine("=== Add Game ===\n Insert minimum players: ");
+            loopMaxPlayers:
+            string maxPlayersStr = Console.ReadLine();
+            if (!int.TryParse(maxPlayersStr, out int maxPlayers) || maxPlayers < 0)
+            {
+                Console.WriteLine(" Invalid input");
+                goto loopMaxPlayers;
+            }
+
             BoardGame game = new BoardGame(title, condition, price, gameType, minPlayers, maxPlayers);
             games.Add(game);
             SaveToFile(); // saves the changes to File.
