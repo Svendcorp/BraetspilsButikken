@@ -106,7 +106,7 @@ namespace Brætspils_butikken
         private void MenuAddGame()
         {
             Console.WriteLine("=== Add Game ===");
-
+            Console.WriteLine("denne funktion mangler");
         }
 
         private void MenuDeleteGame()
