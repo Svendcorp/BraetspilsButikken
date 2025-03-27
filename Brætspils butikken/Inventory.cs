@@ -250,10 +250,10 @@ namespace Brætspils_butikken
         {
             try
             {
-                Console.WriteLine($"Gemmer {games.Count} spil til fil...");
+                Console.WriteLine($"Gemmer {games.Count} games to fil...");
                 string json = JsonSerializer.Serialize(games, new JsonSerializerOptions { WriteIndented = true });
                 File.WriteAllText(FilePath, json);
-                Console.Writeline("Data gemt!");
+                Console.WriteLine("Data saved!");
             }
             catch (Exception ex)
             {
@@ -263,14 +263,14 @@ namespace Brætspils_butikken
 
         public void LoadFromFile()
         {
-            if (!File.Exists(FilePath)) // Create file if it doesnt exit
+            if (!File.Exists(FilePath)) return;// Create file if it doesnt exit
             {
                 try
                 {
                     string json = File.ReadAllText(FilePath);
                     if (!string.IsNullOrWhiteSpace(json))
                     {
-                        Console.Writeline("Loading games from file...");
+                        Console.WriteLine("Loading games from file...");
                         games = JsonSerializer.Deserialize<List<BoardGame>>(json) ?? new List<BoardGame>();
                         UpdateDictionaries();
                         Console.WriteLine($"Loaded {games.Count} games!");

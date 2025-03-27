@@ -1,19 +1,19 @@
 [
   {
-    "Id": "32ee49fd",
+    "Id": "cde8b2e3",
     "Title": "Catan",
-    "Condition": "Good",
-    "Price": 139,
+    "Condition": "Decent",
+    "Price": 129,
     "Quantity": 0,
     "GameType": "STRATEGY",
     "MinPlayers": 2,
     "MaxPlayers": 4
   },
   {
-    "Id": "42280614",
+    "Id": "6f085cbe",
     "Title": "Chess",
-    "Condition": "Decent",
-    "Price": 29,
+    "Condition": "Good",
+    "Price": 49,
     "Quantity": 0,
     "GameType": "STRATEGY",
     "MinPlayers": 2,
