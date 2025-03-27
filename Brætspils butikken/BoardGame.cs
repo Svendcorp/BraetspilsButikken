@@ -18,8 +18,6 @@ namespace Brætspils_butikken
         public int MinPlayers { get; set; }
         public int MaxPlayers { get; set; }
 
-        internal static int nextId = 1; //keep tack of the next ID, starts from 1
-
         
 
         public BoardGame() { }
