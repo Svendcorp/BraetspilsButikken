@@ -25,13 +25,12 @@ namespace Brætspils_butikken
         public BoardGame() { }
 
         //Constructor
-        public BoardGame(Guid id, string title, string condition, decimal price, int quantity, string gameType, int minPlayers, int maxPlayers)
+        public BoardGame(Guid id, string title, string condition, decimal price, string gameType, int minPlayers, int maxPlayers)
         {
             Id = Guid.NewGuid(); //generate unique ID
             Title = title;
             Condition = condition;
             Price = price;
-            Quantity = quantity;
             GameType = gameType;
             MinPlayers = minPlayers;
             MaxPlayers = maxPlayers;
@@ -39,7 +38,7 @@ namespace Brætspils_butikken
 
         public override string ToString()
         {
-            return $"{Id}: {Title} ({GameType}) - {Condition}, Pris: {Price} kr, Antal: {Quantity}, Spillere: {MinPlayers}-{MaxPlayers}";
+            return $"{Id}: {Title} ({GameType}) - {Condition}, Pris: {Price} kr, Spillere: {MinPlayers}-{MaxPlayers}";
         }
 
     }
