@@ -26,12 +26,13 @@ namespace Brætspils_butikken
             Console.WriteLine(" 2. Delete Game");
             Console.WriteLine(" 3. Edit Game");
             Console.WriteLine(" 4. Show Storage");
+            Console.WriteLine(" 5. Game Requests");
             Console.WriteLine();
             Console.WriteLine("=== Reservation Menu =====");
-            Console.WriteLine(" 5. Reserve Game");
-            Console.WriteLine(" 6. Reservation List");
+            Console.WriteLine(" 6. Reserve Game");
+            Console.WriteLine(" 7. Reservation List");
             Console.WriteLine();
-            Console.WriteLine(" 7. Exit");
+            Console.WriteLine(" 8. Exit");
             Console.WriteLine();
         }
 
@@ -76,17 +77,22 @@ namespace Brætspils_butikken
 
                     case '5':
                         Console.Clear();
-                        MenuReserveGame();
+                        GameRequest();
                         MainMenu();
                         break;
 
                     case '6':
                         Console.Clear();
-                        MenuReservationList();
+                        MenuReserveGame();
                         MainMenu();
                         break;
 
                     case '7':
+                        Console.Clear();
+                        MenuReservationList();
+                        break;
+
+                    case '8':
                         Console.Clear();
                         MenuExit();
                         break;
@@ -204,6 +210,11 @@ namespace Brætspils_butikken
                     Console.WriteLine(" Is an Invalid input");
                 }
             }
+        }
+
+        private void GameRequest()
+        {
+
         }
 
         //Exit
