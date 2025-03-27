@@ -11,8 +11,7 @@ namespace Brætspils_butikken
         static void Main(string[] args)
         {
            Inventory inventory = new Inventory();
-           inventory.LoadFromFile();
-
+           
            UserInterface ui = new UserInterface();
            ui.Start();
 

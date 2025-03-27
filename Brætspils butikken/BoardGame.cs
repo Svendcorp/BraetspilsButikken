@@ -9,7 +9,7 @@ namespace Brætspils_butikken
     public class BoardGame
     {
         //Public variables
-        public Guid Id { get; private set; } //Unique ID for each boardgame (only made in creation of instance)
+        public string Id { get; set; } //Unique ID for each boardgame (only made in creation of instance)
         public string Title { get; set; }
         public string Condition { get; set; }
         public decimal Price { get; set; }
@@ -24,10 +24,10 @@ namespace Brætspils_butikken
 
         public BoardGame() { }
 
-        //Constructor
-        public BoardGame(Guid id, string title, string condition, decimal price, string gameType, int minPlayers, int maxPlayers)
+        //Constructor to create new boardgame
+        public BoardGame(string title, string condition, decimal price, string gameType, int minPlayers, int maxPlayers)
         {
-            Id = Guid.NewGuid(); //generate unique ID
+            Id = Guid.NewGuid().ToString("N").Substring(0, 8); //generate unique ID
             Title = title;
             Condition = condition;
             Price = price;
@@ -38,7 +38,7 @@ namespace Brætspils_butikken
 
         public override string ToString()
         {
-            return $"{Id}: {Title} ({GameType}) - {Condition}, Pris: {Price} kr, Spillere: {MinPlayers}-{MaxPlayers}";
+            return $"[{Id}] {Title} ({GameType}) - {Condition}, Pris: {Price} kr, Spillere: {MinPlayers}-{MaxPlayers}";
         }
 
     }

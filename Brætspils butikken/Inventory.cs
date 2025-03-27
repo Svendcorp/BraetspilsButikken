@@ -13,8 +13,7 @@ namespace Brætspils_butikken
         private List<BoardGame> games = new List<BoardGame>();
         private const string FilePath = "inventory.Json"; // Det er her data gemmes fra inventory. Det gemmes i en Json tekstfil. 
 
-        public Guid Id { get; private set; }
-
+        
         public Inventory()
         {
             LoadFromFile(); // indlæses hver gang programmet starter.
@@ -65,7 +64,7 @@ namespace Brætspils_butikken
             Console.WriteLine("=== Add Game ===\n Indtast maksimum antal spillere: ");
             int maxPlayers = int.Parse(Console.ReadLine());
 
-            BoardGame game = new BoardGame(Id, title, condition, price, gameType, minPlayers, maxPlayers);
+            BoardGame game = new BoardGame(title, condition, price, gameType, minPlayers, maxPlayers);
             games.Add(game);
             SaveToFile(); // saves the changes to File.
             Console.WriteLine($"\nBrætspillet '{game.Title}' er tilføjet til lageret.");
@@ -174,20 +173,28 @@ namespace Brætspils_butikken
 
         public void SaveToFile()
         {
-            string Json = JsonSerializer.Serialize(games, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText(FilePath, Json);
+            Console.WriteLine($"Gemmer {games.Count} spil til fil...");
+            string json = JsonSerializer.Serialize(games, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(FilePath, json);
+            Console.WriteLine("Data gemt!");
         }
 
 
         public void LoadFromFile()
         {
-            if (File.Exists(FilePath))
+            if (!File.Exists(FilePath)) // Create file if it doesnt exit
             {
-                string json = File.ReadAllText(FilePath);
-                if (!string.IsNullOrWhiteSpace(json))
-                {
-                    games = JsonSerializer.Deserialize<List<BoardGame>>(json) ?? new List<BoardGame>();
-                }
+                Console.WriteLine("Filen findes ikke. Opretter tom liste.");
+                games = new List<BoardGame>();
+                return;
+            }
+
+            string json = File.ReadAllText(FilePath);
+            if (!string.IsNullOrWhiteSpace(json))
+            {
+                Console.WriteLine("Indlæser data fra fil...");
+                games = JsonSerializer.Deserialize<List<BoardGame>>(json) ?? new List<BoardGame>();
+                Console.WriteLine($"Indlæst {games.Count} spil!");
             }
         }
     }

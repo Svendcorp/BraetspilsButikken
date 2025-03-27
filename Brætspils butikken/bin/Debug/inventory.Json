@@ -1,22 +1,22 @@
 [
   {
-    "Id": "00000000-0000-0000-0000-000000000000",
-    "Title": "Abe",
-    "Condition": "Bad",
-    "Price": 52,
-    "Quantity": 0,
-    "GameType": "NINJASPIL",
-    "MinPlayers": 5,
-    "MaxPlayers": 8
-  },
-  {
-    "Id": "264f1bb9-84e8-4594-956d-18ab27a95c13",
+    "Id": "32ee49fd",
     "Title": "Catan",
     "Condition": "Good",
-    "Price": 149,
+    "Price": 139,
     "Quantity": 0,
     "GameType": "STRATEGY",
     "MinPlayers": 2,
-    "MaxPlayers": 6
+    "MaxPlayers": 4
+  },
+  {
+    "Id": "42280614",
+    "Title": "Chess",
+    "Condition": "Decent",
+    "Price": 29,
+    "Quantity": 0,
+    "GameType": "STRATEGY",
+    "MinPlayers": 2,
+    "MaxPlayers": 2
   }
 ]
