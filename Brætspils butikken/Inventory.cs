@@ -11,30 +11,16 @@ namespace Brætspils_butikken
     public class Inventory
     {
         private List<BoardGame> games = new List<BoardGame>();
-        private Dictionary<string, BoardGame> gamesByTitle = new Dictionary<string, BoardGame>(StringComparer.OrdinalIgnoreCase);
         private const string FilePath = "inventory.Json"; // Det er her data gemmes fra inventory. Det gemmes i en Json tekstfil. 
 
         public Inventory()
         {
-            LoadFromFile(); // indlæses hver gang programmet starter.
-            UpdateDictionaries();
+            LoadFromFile();
         }
 
-        private void UpdateDictionaries()
-        {
-            gamesByTitle.Clear();
-            foreach (var game in games)
-            {
-                gamesByTitle[game.Title] = game;
-            }
-            //Add GameType aso.
-        }
-
-        //Add a new game to inventory
-        
         public void AddGame()
         {
-            Console.Clear(); //Title
+            Console.Clear(); // Title
             Console.WriteLine("=== Add Game ===\n Insert title: ");
             loopTitle:
             string title = Console.ReadLine();
@@ -109,22 +95,20 @@ namespace Brætspils_butikken
 
             BoardGame game = new BoardGame(title, condition, price, gameType, minPlayers, maxPlayers);
             games.Add(game);
-            gamesByTitle[title] = game;
-            SaveToFile(); // saves the changes to File.
+            SaveToFile();
 
             Console.Clear();
             Console.WriteLine($"\nGame '{game.Title}' has been added to inventory.");
-
             Console.ReadKey();
         }
 
         //Remove a game from inventory
         public void RemoveGame(string title)
         {
-            if (gamesByTitle.TryGetValue(title, out BoardGame gameToRemove))
+            var gameToRemove = games.FirstOrDefault(g => g.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
+            if (gameToRemove != null)
             {
                 games.Remove(gameToRemove);
-                gamesByTitle.Remove(title);
                 SaveToFile();
                 Console.WriteLine($"Brætspillet '{title}' er fjernet fra lageret");
                 Console.ReadKey();
@@ -221,32 +205,88 @@ namespace Brætspils_butikken
             }
         }
 
-
-        public List<BoardGame> FindGame(string searchTerm)
+        public List<BoardGame> FindGame(string searchTerm) //Søg efter spil
         {
-            Console.Clear();
-            List<BoardGame> ofGames = new List<BoardGame>();
-            Console.WriteLine($"=== Search results for '{searchTerm}' ===\n");
+            List<BoardGame> results = new List<BoardGame>(); //Opretter en liste til at gemme resultaterne
             
-            var results = games.Where(g => 
+            // Prøver at søge efter GUID
+            if (Guid.TryParse(searchTerm, out Guid guid)) //Hvis searchTerm kan parses til en GUID
+            {
+                return FindByGuid(guid); //Søg efter GUID
+            }
+            
+            // Prøver at søge efter pris
+            if (decimal.TryParse(searchTerm, out decimal price)) //Hvis searchTerm kan parses til en pris
+            {
+                return FindByPrice(price); //Søg efter pris
+            }
+            
+            // Prøver at søge efter antal spillere
+            if (int.TryParse(searchTerm, out int playerCount)) //Hvis searchTerm kan parses til et antal spillere
+            {
+                return FindByPlayerCount(playerCount); //Søg efter antal spillere
+            }
+            
+            // Søger efter titel eller gametype
+            return FindByTitleOrType(searchTerm);
+        }
+
+        private List<BoardGame> FindByGuid(Guid guid) //Søg efter GUID
+        {
+            List<BoardGame> results = new List<BoardGame>(); //Opretter en liste til at gemme resultaterne
+            var matches = games.Where(g => g.Id == guid).ToList(); //Søg efter GUID
+            
+            foreach (var game in matches) //Tilføj resultaterne til listen
+            {
+                results.Add(game); 
+            }
+            
+            return results; //Returner resultaterne i console
+        }
+
+        private List<BoardGame> FindByPrice(decimal price) //Søg efter pris
+        {
+            List<BoardGame> results = new List<BoardGame>();
+            var matches = games.Where(g => g.Price == price).ToList();
+            
+            foreach (var game in matches)
+            {
+                results.Add(game);
+            }
+            
+            return results;
+        }
+
+        private List<BoardGame> FindByPlayerCount(int playerCount) //Søg efter antal spillere
+        {
+            List<BoardGame> results = new List<BoardGame>();
+            var matches = games.Where(g => 
+                playerCount >= g.MinPlayers && 
+                playerCount <= g.MaxPlayers
+            ).ToList();
+            
+            foreach (var game in matches)
+            {
+                results.Add(game);
+            }
+            
+            return results;
+        }
+
+        private List<BoardGame> FindByTitleOrType(string searchTerm)
+        {
+            List<BoardGame> results = new List<BoardGame>();
+            var matches = games.Where(g => 
                 g.Title.ToLower().Contains(searchTerm.ToLower()) ||
                 g.GameType.ToLower().Contains(searchTerm.ToLower())
-                //Add Search for ID
-                //Add Search for Price
             ).ToList();
-
-            if (results.Count == 0)
+            
+            foreach (var game in matches)
             {
-                Console.WriteLine("No games found that match the search.");
+                results.Add(game);
             }
-            else
-            {
-                foreach (var game in results)
-                {
-                    ofGames.Add(game);
-                }
-            }
-            return ofGames;
+            
+            return results;
         }
 
         public void SaveToFile()
@@ -266,25 +306,22 @@ namespace Brætspils_butikken
 
         public void LoadFromFile()
         {
-            if (!File.Exists(FilePath)) return;// Create file if it doesnt exit
+            if (!File.Exists(FilePath)) return; // Create file if it doesnt exit
+            try
             {
-                try
+                string json = File.ReadAllText(FilePath);
+                if (!string.IsNullOrWhiteSpace(json))
                 {
-                    string json = File.ReadAllText(FilePath);
-                    if (!string.IsNullOrWhiteSpace(json))
-                    {
-                        Console.WriteLine("Loading games from file...");
-                        games = JsonSerializer.Deserialize<List<BoardGame>>(json) ?? new List<BoardGame>();
-                        UpdateDictionaries();
-                        Console.WriteLine($"Loaded {games.Count} games!");
-                    }
+                    Console.WriteLine("Loading games from file...");
+                    games = JsonSerializer.Deserialize<List<BoardGame>>(json) ?? new List<BoardGame>();
+                    Console.WriteLine($"Loaded {games.Count} games!");
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Error loading file: {ex.Message}");
-                    Console.WriteLine("Creating empty list.");
-                    games = new List<BoardGame>();
-                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading file: {ex.Message}");
+                Console.WriteLine("Creating empty list.");
+                games = new List<BoardGame>();
             }
         }
     }

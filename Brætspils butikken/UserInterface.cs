@@ -153,6 +153,7 @@ namespace Brætspils_butikken
                         Console.WriteLine("=== Search for game ===");
                         Console.Write("Enter search term: ");
                         string searchTerm = Console.ReadLine();
+                        
                         if (!string.IsNullOrWhiteSpace(searchTerm))
                         {
                             inventory.FindGame(searchTerm);
