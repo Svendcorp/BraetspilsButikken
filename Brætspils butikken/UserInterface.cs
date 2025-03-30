@@ -138,10 +138,10 @@ namespace Brætspils_butikken
             {
                 Console.Clear();
                 Console.WriteLine("=== Show Storage ===");
-                Console.WriteLine(" 1. Search");
-                Console.WriteLine(" 2. Print List");
+                Console.WriteLine(" 1. Print List");
+                Console.WriteLine(" 2. Search");
                 Console.WriteLine(" 3. Exit");
-                Console.Write("\nVælg en mulighed: ");
+                Console.Write("\nChoose an option: ");
 
                 var choice = Console.ReadKey(intercept: true);
                 Console.WriteLine();
@@ -149,22 +149,37 @@ namespace Brætspils_butikken
                 switch (choice.KeyChar)
                 {
                     case '1':
-                        Console.Clear();
-                        Console.WriteLine("=== Search for game ===");
-                        Console.Write("Enter search term: ");
-                        string searchTerm = Console.ReadLine();
-                        
-                        if (!string.IsNullOrWhiteSpace(searchTerm))
-                        {
-                            inventory.FindGame(searchTerm);
-                        }
+                        inventory.ShowInventory();
+                        Console.WriteLine("\nPress a key to continue...");
+                        Console.ReadKey();
                         break;
 
                     case '2':
                         Console.Clear();
-                        Console.WriteLine("=== Storage ===");
-                        inventory.ShowInventory();
-                        Console.WriteLine("\nPress a key to continue...");
+                        Console.WriteLine("=== Search for game ===");
+                        Console.WriteLine("You can search for:");
+                        Console.WriteLine("- Title or game type");
+                        Console.WriteLine("- Price (e.g. 100)");
+                        Console.WriteLine("- Player count (e.g. 4)");
+                        Console.WriteLine("- GUID");
+                        Console.Write("\nEnter search term: ");
+                        string searchTerm = Console.ReadLine();
+
+                        var results = inventory.FindGame(searchTerm);
+                        
+                        if (results.Count == 0)
+                        {
+                            Console.WriteLine("\nNo games found matching the search.");
+                        }
+                        else
+                        {
+                            foreach (var game in results)
+                            {
+                                Console.WriteLine($"- {game.Title} ({game.GameType})");
+                            }   
+                        }
+                        
+                        Console.WriteLine("Press a key to continue...");
                         Console.ReadKey();
                         break;
 

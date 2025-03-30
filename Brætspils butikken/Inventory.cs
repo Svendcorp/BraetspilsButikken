@@ -231,23 +231,27 @@ namespace Brætspils_butikken
             return FindByTitleOrType(searchTerm);
         }
 
-        private List<BoardGame> FindByGuid(Guid guid) //Søg efter GUID
+        private void FindByGuid(Guid guid) //Søg efter GUID
         {
             List<BoardGame> results = new List<BoardGame>();
             var matches = games.Where(g => g.Id.ToString() == guid.ToString()).ToList();
             
-            foreach (var game in matches) 
+            Console.WriteLine($"Searching for GUID: {guid}");
+            Console.WriteLine($"Number of matches found: {matches.Count()}");
+            
+            foreach (var game in matches)
             {
                 results.Add(game);
             }
-            
-            return results; 
         }
 
         private List<BoardGame> FindByPrice(decimal price) //Søg efter pris
         {
             List<BoardGame> results = new List<BoardGame>();
             var matches = games.Where(g => g.Price == price).ToList();
+            
+            Console.WriteLine($"Searching for price: {price}");
+            Console.WriteLine($"Number of matches found: {matches.Count()}");
             
             foreach (var game in matches)
             {
@@ -265,6 +269,9 @@ namespace Brætspils_butikken
                 playerCount <= g.MaxPlayers
             ).ToList();
             
+            Console.WriteLine($"Searching for games with {playerCount} players");
+            Console.WriteLine($"Number of matches found: {matches.Count()}");
+            
             foreach (var game in matches)
             {
                 results.Add(game);
@@ -280,6 +287,9 @@ namespace Brætspils_butikken
                 g.Title.ToLower().Contains(searchTerm.ToLower()) ||
                 g.GameType.ToLower().Contains(searchTerm.ToLower())
             ).ToList();
+            
+            Console.WriteLine($"Searching for: {searchTerm}");
+            Console.WriteLine($"Number of matches found: {matches.Count()}");
             
             foreach (var game in matches)
             {
