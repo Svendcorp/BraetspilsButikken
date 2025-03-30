@@ -233,15 +233,15 @@ namespace Brætspils_butikken
 
         private List<BoardGame> FindByGuid(Guid guid) //Søg efter GUID
         {
-            List<BoardGame> results = new List<BoardGame>(); //Opretter en liste til at gemme resultaterne
-            var matches = games.Where(g => g.Id == guid).ToList(); //Søg efter GUID
+            List<BoardGame> results = new List<BoardGame>();
+            var matches = games.Where(g => g.Id.ToString() == guid.ToString()).ToList();
             
-            foreach (var game in matches) //Tilføj resultaterne til listen
+            foreach (var game in matches) 
             {
-                results.Add(game); 
+                results.Add(game);
             }
             
-            return results; //Returner resultaterne i console
+            return results; 
         }
 
         private List<BoardGame> FindByPrice(decimal price) //Søg efter pris
