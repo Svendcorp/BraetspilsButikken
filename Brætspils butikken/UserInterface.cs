@@ -173,12 +173,25 @@ namespace Brætspils_butikken
                         }
                         else
                         {
+                            Console.WriteLine($"\nFound {results.Count} games:");
+                            Console.WriteLine(new string('-', 79));
                             foreach (var game in results)
                             {
-                                Console.WriteLine($"- {game.Title} ({game.GameType})");
-                            }   
+                                // Justerer længden af titlen
+                                string title = game.Title;
+                                string gameType = game.GameType;
+                                string price = $"{game.Price} kr.";
+                                string playerCount = $"{game.MinPlayers}-{game.MaxPlayers} players";
+                                string condition = game.Condition;
+
+                                // Justerer output
+                                Console.WriteLine($"{title,-25} | {gameType,-5} | {price,-5} | {playerCount,-10} | {condition,-5} | {game.Id,-5} | ");
+                            }
+                            Console.WriteLine(new string('-', 79));
+
+
+
                         }
-                        
                         Console.WriteLine("Press a key to continue...");
                         Console.ReadKey();
                         break;

@@ -208,41 +208,24 @@ namespace Brætspils_butikken
         public List<BoardGame> FindGame(string searchTerm) //Søg efter spil
         {
             List<BoardGame> results = new List<BoardGame>(); //Opretter en liste til at gemme resultaterne
-            
-            // Prøver at søge efter GUID
-            if (Guid.TryParse(searchTerm, out Guid guid)) //Hvis searchTerm kan parses til en GUID
-            {
-                return FindByGuid(guid); //Søg efter GUID
-            }
-            
-            // Prøver at søge efter pris
-            if (decimal.TryParse(searchTerm, out decimal price)) //Hvis searchTerm kan parses til en pris
-            {
-                return FindByPrice(price); //Søg efter pris
-            }
-            
-            // Prøver at søge efter antal spillere
-            if (int.TryParse(searchTerm, out int playerCount)) //Hvis searchTerm kan parses til et antal spillere
-            {
-                return FindByPlayerCount(playerCount); //Søg efter antal spillere
-            }
-            
-            // Søger efter titel eller gametype
-            return FindByTitleOrType(searchTerm);
-        }
 
-        private void FindByGuid(Guid guid) //Søg efter GUID
-        {
-            List<BoardGame> results = new List<BoardGame>();
-            var matches = games.Where(g => g.Id.ToString() == guid.ToString()).ToList();
-            
-            Console.WriteLine($"Searching for GUID: {guid}");
-            Console.WriteLine($"Number of matches found: {matches.Count()}");
-            
-            foreach (var game in matches)
+                // Prøver at søge efter antal spillere
+            if (int.TryParse(searchTerm, out int playerCount) && playerCount < 10) // Hvis searchTerm kan parses til et antal spillere og er mindre end 10
             {
-                results.Add(game);
+                results = FindByPlayerCount(playerCount); 
             }
+            // Prøver at søge efter pris
+            else if (decimal.TryParse(searchTerm, out decimal price) && price > 10) // Hvis searchTerm kan parses til en pris og er større end 10
+            {
+                results = FindByPrice(price); 
+            }
+            
+            else // Søger efter titel, gametype eller ID
+            {
+                results = FindByString(searchTerm);
+            }
+
+            return results;
         }
 
         private List<BoardGame> FindByPrice(decimal price) //Søg efter pris
@@ -280,22 +263,25 @@ namespace Brætspils_butikken
             return results;
         }
 
-        private List<BoardGame> FindByTitleOrType(string searchTerm)
+        private List<BoardGame> FindByString(string searchTerm) 
         {
             List<BoardGame> results = new List<BoardGame>();
-            var matches = games.Where(g => 
+
+            // Søg efter titel, spiltype eller ID
+            var matches = games.Where(g =>
                 g.Title.ToLower().Contains(searchTerm.ToLower()) ||
-                g.GameType.ToLower().Contains(searchTerm.ToLower())
+                g.GameType.ToLower().Contains(searchTerm.ToLower()) ||
+                g.Id.ToString().IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0
             ).ToList();
-            
+
             Console.WriteLine($"Searching for: {searchTerm}");
             Console.WriteLine($"Number of matches found: {matches.Count()}");
-            
+
             foreach (var game in matches)
             {
                 results.Add(game);
             }
-            
+
             return results;
         }
 
