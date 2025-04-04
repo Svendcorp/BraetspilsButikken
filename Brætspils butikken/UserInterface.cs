@@ -241,6 +241,10 @@ namespace Brætspils_butikken
             }
         }
 
+
+
+
+        //=== Game Requests =====
         private void GameRequest()
         {
             Console.WriteLine("=== Game Request ===");
@@ -256,14 +260,17 @@ namespace Brætspils_butikken
                 {
                     case '1':
                         Console.WriteLine("=== Insert Request ===");
+                        keepGoing = false;
                         break;
 
                     case '2':
                         Console.WriteLine("=== Show Requests ===");
+                        keepGoing = false;
                         break;
 
                     case '3':
                         Console.WriteLine("=== Delete Request ===");
+                        keepGoing = false;
                         break;
 
                     default:
@@ -276,6 +283,11 @@ namespace Brætspils_butikken
 
             }
         }
+
+
+
+
+
 
         //Exit
         private void MenuExit()
