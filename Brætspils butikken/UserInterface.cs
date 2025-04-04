@@ -243,7 +243,38 @@ namespace Brætspils_butikken
 
         private void GameRequest()
         {
+            Console.WriteLine("=== Game Request ===");
+            Console.WriteLine(" 1. Insert Request");
+            Console.WriteLine(" 2. Show Requests");
+            Console.WriteLine(" 3. Delete Request");
 
+            bool keepGoing = true;
+            while (keepGoing == true)
+            {
+                var choice = Console.ReadKey();
+                switch (choice.KeyChar)
+                {
+                    case '1':
+                        Console.WriteLine("=== Insert Request ===");
+                        break;
+
+                    case '2':
+                        Console.WriteLine("=== Show Requests ===");
+                        break;
+
+                    case '3':
+                        Console.WriteLine("=== Delete Request ===");
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid input");
+                        break;
+
+                }
+
+
+
+            }
         }
 
         //Exit

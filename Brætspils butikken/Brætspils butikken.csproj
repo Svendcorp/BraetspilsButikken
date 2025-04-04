@@ -59,7 +59,6 @@
   <ItemGroup>
     <Compile Include="BoardGame.cs" />
     <Compile Include="Inventory.cs" />
-    <Compile Include="Search.cs" />
     <Compile Include="UserInterface.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
