@@ -32,7 +32,7 @@ namespace Brætspils_butikken
 
             Console.Clear(); //Condition
             Console.WriteLine("=== Add Game ===\n Insert condition\n 1. Good\n 2. Decent \n 3. Bad\n");
-            string condition = "PlaceHolder";
+            string condition;
             loopCondition:
             var conditionSwitch = Console.ReadKey(intercept: true).KeyChar;
             switch (conditionSwitch)
