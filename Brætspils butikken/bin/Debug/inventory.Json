@@ -118,5 +118,15 @@
     "GameType": "FAMILLY",
     "MinPlayers": 2,
     "MaxPlayers": 6
+  },
+  {
+    "Id": "070df2b3",
+    "Title": "Ludo",
+    "Condition": "Good",
+    "Price": 49,
+    "Quantity": 0,
+    "GameType": "FAMILLY",
+    "MinPlayers": 2,
+    "MaxPlayers": 4
   }
 ]
