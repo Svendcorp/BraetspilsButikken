@@ -17,7 +17,7 @@ namespace Brætspils_butikken
         {
             LoadFromFile();
         }
-
+        
         public void AddGame()
         {
             Console.Clear(); // Title
@@ -285,6 +285,32 @@ namespace Brætspils_butikken
             return results;
         }
 
+        //=====Game Request Add/Remove =====//
+        private List<RequestGame> Requestgame2(string search)
+        {
+            List<RequestGame> GameRequests = new List<RequestGame>();
+            return GameRequests;
+        }
+
+
+
+
+        /*
+        Console.Clear(); // Title
+            Console.WriteLine("=== Add Game ===\n Insert title: ");
+            loopTitle:
+            string title = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(title))
+            {
+                Console.WriteLine("Invalid input");
+                goto loopTitle;
+            }
+        */
+
+
+
+
+        //===== Save/load Game=====//
         public void SaveToFile()
         {
             try

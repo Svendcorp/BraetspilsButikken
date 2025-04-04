@@ -18,8 +18,6 @@ namespace Brætspils_butikken
         public int MinPlayers { get; set; }
         public int MaxPlayers { get; set; }
 
-        public BoardGame() { }
-
         //Constructor to create new boardgame
         public BoardGame(string title, string condition, decimal price, string gameType, int minPlayers, int maxPlayers)
         {
@@ -38,4 +36,18 @@ namespace Brætspils_butikken
         }
 
     }
+
+    public class RequestGame
+    {
+        //Public variable
+        public string RequestTitle { get; set; }
+
+        //Constructor to create a new request for a boardgame
+        public RequestGame(string RequestTitle)
+        {
+            this.RequestTitle = RequestTitle;
+        }
+    }
+
+
 }

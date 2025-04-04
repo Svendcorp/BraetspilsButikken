@@ -77,7 +77,7 @@ namespace Brætspils_butikken
 
                     case '5':
                         Console.Clear();
-                        GameRequest();
+                        MenuGameRequest();
                         MainMenu();
                         break;
 
@@ -245,12 +245,13 @@ namespace Brætspils_butikken
 
 
         //=== Game Requests =====
-        private void GameRequest()
+        private void MenuGameRequest()
         {
             Console.WriteLine("=== Game Request ===");
             Console.WriteLine(" 1. Insert Request");
             Console.WriteLine(" 2. Show Requests");
             Console.WriteLine(" 3. Delete Request");
+            Console.WriteLine(" 4. Exit");
 
             bool keepGoing = true;
             while (keepGoing == true)
@@ -261,6 +262,7 @@ namespace Brætspils_butikken
                     case '1':
                         Console.WriteLine("=== Insert Request ===");
                         keepGoing = false;
+
                         break;
 
                     case '2':
@@ -270,6 +272,10 @@ namespace Brætspils_butikken
 
                     case '3':
                         Console.WriteLine("=== Delete Request ===");
+                        keepGoing = false;
+                        break;
+                    
+                    case '4': // Exit
                         keepGoing = false;
                         break;
 
