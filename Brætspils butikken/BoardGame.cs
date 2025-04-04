@@ -43,9 +43,14 @@ namespace Brætspils_butikken
         public string RequestTitle { get; set; }
 
         //Constructor to create a new request for a boardgame
-        public RequestGame(string RequestTitle)
+        public RequestGame(string requestTitle)
         {
-            this.RequestTitle = RequestTitle;
+            RequestTitle = requestTitle;
+        }
+
+        public override string ToString()
+        {
+            return $"Request for: {RequestTitle}";
         }
     }
 

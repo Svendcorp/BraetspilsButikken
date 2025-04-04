@@ -245,7 +245,7 @@ namespace Brætspils_butikken
 
 
         //=== Game Requests =====
-        private void MenuGameRequest()
+        public void MenuGameRequest()
         {
             Console.WriteLine("=== Game Request ===");
             Console.WriteLine(" 1. Insert Request");
@@ -260,19 +260,37 @@ namespace Brætspils_butikken
                 switch (choice.KeyChar)
                 {
                     case '1':
-                        Console.WriteLine("=== Insert Request ===");
+                        Console.Clear();
+                        Console.WriteLine("=== Insert Request ===\n Insert title: ");
+                    loopTitle:
+                        string title = Console.ReadLine();
+                        if (string.IsNullOrWhiteSpace(title))
+                        {
+                            Console.WriteLine("Invalid input");
+                            goto loopTitle;
+                        }
+                        
+                        inventory.RequestGame(title);
+
                         keepGoing = false;
 
                         break;
 
                     case '2':
+                        Console.Clear();
                         Console.WriteLine("=== Show Requests ===");
+                        inventory.ShowRequest();
                         keepGoing = false;
+
                         break;
 
                     case '3':
+                        Console.Clear();
                         Console.WriteLine("=== Delete Request ===");
+                        string requestTitle = Console.ReadLine();
+                        inventory.RemoveRequest(requestTitle);
                         keepGoing = false;
+
                         break;
                     
                     case '4': // Exit
