@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Text.Json;
+using System.Diagnostics;
+using System.Security.AccessControl;
+using System.Text.RegularExpressions;
 
 namespace Brætspils_butikken
 {
@@ -17,7 +20,7 @@ namespace Brætspils_butikken
         {
             LoadFromFile();
         }
-
+        
         public void AddGame()
         {
             Console.Clear(); // Title
@@ -285,6 +288,69 @@ namespace Brætspils_butikken
             return results;
         }
 
+
+
+        //=======Game Request Add/Remove ========//
+
+        //Request List
+        
+        public List<RequestGame> GameRequests = new List<RequestGame>();
+
+        //Request ADD
+        public void RequestGame(string requestTitle)
+        {
+
+            GameRequests.Add(new RequestGame(requestTitle));
+            SaveToFile();
+
+            Console.Clear();
+            Console.WriteLine($"\nGame '{requestTitle}' has been added to game request.");
+            Console.ReadKey();
+        }
+
+        //Show Request
+        public void ShowRequest()
+        {
+            if (GameRequests.Count == 0)
+            {
+                Console.WriteLine("No new Requests");
+                Console.ReadKey();
+                return;
+            }
+            Console.Clear();
+            Console.WriteLine("\nRequests:");
+            Console.WriteLine("----------------------------------------");
+            foreach (var requestTitle in GameRequests)
+            {
+                Console.WriteLine(requestTitle);
+            }
+            Console.WriteLine("----------------------------------------");
+            Console.ReadKey();
+        }
+
+        //Request Remove
+        public void RemoveRequest(string title)
+        {
+            var requestToRemove = GameRequests.FirstOrDefault(g => g.RequestTitle.Equals(title, StringComparison.OrdinalIgnoreCase));
+            if (requestToRemove != null)
+            {
+                GameRequests.Remove(requestToRemove);
+                //SaveToFile();
+                Console.WriteLine($"Brætspillet '{title}' er fjernet fra lageret");
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.WriteLine($"Brætspillet '{title}' blev ikke fundet i lageret");
+                Console.ReadKey();
+            }
+        }
+
+
+
+
+
+        //===== Save/load Game=====//
         public void SaveToFile()
         {
             try
