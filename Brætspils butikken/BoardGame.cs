@@ -50,7 +50,7 @@ namespace Brætspils_butikken
 
         public override string ToString()
         {
-            return $"Request for: {RequestTitle}";
+            return $"{RequestTitle}";
         }
     }
 

@@ -20,7 +20,7 @@ namespace Brætspils_butikken
         {
             LoadFromFile();
         }
-        
+
         public void AddGame()
         {
             Console.Clear(); // Title
@@ -297,16 +297,17 @@ namespace Brætspils_butikken
         public List<RequestGame> GameRequests = new List<RequestGame>();
 
         //Request ADD
-        public void RequestGame(string requestTitle)
+        public void GameRequest(string requestTitle)
         {
 
             GameRequests.Add(new RequestGame(requestTitle));
-            SaveToFile();
+            SaveRequestToFile();
 
             Console.Clear();
             Console.WriteLine($"\nGame '{requestTitle}' has been added to game request.");
             Console.ReadKey();
         }
+
 
         //Show Request
         public void ShowRequest()
@@ -315,9 +316,14 @@ namespace Brætspils_butikken
             {
                 Console.WriteLine("No new Requests");
                 Console.ReadKey();
+
                 return;
             }
             Console.Clear();
+
+            GameRequests.Clear();
+            LoadRequestFromFile();
+
             Console.WriteLine("\nRequests:");
             Console.WriteLine("----------------------------------------");
             foreach (var requestTitle in GameRequests)
@@ -326,6 +332,8 @@ namespace Brætspils_butikken
             }
             Console.WriteLine("----------------------------------------");
             Console.ReadKey();
+
+            
         }
 
         //Request Remove
@@ -335,7 +343,8 @@ namespace Brætspils_butikken
             if (requestToRemove != null)
             {
                 GameRequests.Remove(requestToRemove);
-                //SaveToFile();
+                SaveRequestToFile();
+
                 Console.WriteLine($"Brætspillet '{title}' er fjernet fra lageret");
                 Console.ReadKey();
             }
@@ -347,6 +356,67 @@ namespace Brætspils_butikken
         }
 
 
+
+        //===== Request Save/load ======//
+        //Save Request
+        public void SaveRequestToFile()
+        {
+            string directoryPath = "TextFiles";
+            string filePath = Path.Combine(directoryPath, "RequestFile.txt");
+            try
+
+            {
+                if (!Directory.Exists(directoryPath))
+                {
+                    Directory.CreateDirectory(directoryPath);
+                }
+
+                StreamWriter writer = new StreamWriter(filePath);
+
+                foreach (var gameRequest in GameRequests)
+                {
+                    writer.WriteLine(gameRequest);
+                }
+                
+                writer.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.ReadKey();
+            }
+        }
+        
+
+        //Load Request
+        public void LoadRequestFromFile()
+        {
+
+            string requestData;
+            try
+            {
+                StreamReader reader = new StreamReader("TextFiles//RequestFile.txt");
+                requestData = reader.ReadLine();
+
+                while (requestData != null)
+                {
+                    requestData = reader.ReadLine();
+                    GameRequests.Add(new RequestGame(requestData));
+                }
+
+
+
+                reader.Close();
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.ReadKey();
+            }
+
+        }
+        
 
 
 

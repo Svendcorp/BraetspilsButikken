@@ -263,14 +263,14 @@ namespace Brætspils_butikken
                         Console.Clear();
                         Console.WriteLine("=== Insert Request ===\n Insert title: ");
                     loopTitle:
-                        string title = Console.ReadLine();
+                        string title = Console.ReadLine().ToLower();
                         if (string.IsNullOrWhiteSpace(title))
                         {
                             Console.WriteLine("Invalid input");
                             goto loopTitle;
                         }
                         
-                        inventory.RequestGame(title);
+                        inventory.GameRequest(title);
 
                         keepGoing = false;
 
@@ -287,7 +287,7 @@ namespace Brætspils_butikken
                     case '3':
                         Console.Clear();
                         Console.WriteLine("=== Delete Request ===");
-                        string requestTitle = Console.ReadLine();
+                        string requestTitle = Console.ReadLine().ToLower();
                         inventory.RemoveRequest(requestTitle);
                         keepGoing = false;
 
