@@ -19,6 +19,7 @@ namespace Brætspils_butikken
         public Inventory()
         {
             LoadFromFile();
+            LoadRequestFromFile();
         }
 
         public void AddGame()
@@ -391,6 +392,31 @@ namespace Brætspils_butikken
         //Load Request
         public void LoadRequestFromFile()
         {
+            string directoryPath = "TextFiles";
+            string filePath = Path.Combine(directoryPath, "RequestFile.txt");
+
+            try
+            {
+                using (StreamReader reader = new StreamReader(filePath))
+                {
+                    string requestData;
+                    while ((requestData = reader.ReadLine()) != null)
+                    {
+                        GameRequests.Add(new RequestGame(requestData));
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Error loading requests: {e.Message}");
+                Console.ReadKey();
+            }
+        }
+
+        /*
+        //Load Request
+        public void LoadRequestFromFile()
+        {
 
             string requestData;
             try
@@ -416,8 +442,7 @@ namespace Brætspils_butikken
             }
 
         }
-        
-
+        */
 
 
         //===== Save/load Game=====//
