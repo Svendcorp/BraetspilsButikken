@@ -413,7 +413,7 @@ namespace Brætspils_butikken
             }
         }
 
-        /*
+        /* Legacy code for loading requests
         //Load Request
         public void LoadRequestFromFile()
         {
