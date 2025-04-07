@@ -128,5 +128,15 @@
     "GameType": "FAMILLY",
     "MinPlayers": 2,
     "MaxPlayers": 4
+  },
+  {
+    "Id": "33f7321b",
+    "Title": "Kina Skak",
+    "Condition": "Good",
+    "Price": 39,
+    "Quantity": 0,
+    "GameType": "STRATEGY",
+    "MinPlayers": 2,
+    "MaxPlayers": 5
   }
 ]

@@ -18,6 +18,9 @@ namespace Brætspils_butikken
         public int MinPlayers { get; set; }
         public int MaxPlayers { get; set; }
 
+        public bool IsReserved { get; set; } = false;
+        public string ReservedTo { get; set; } = null;
+
         //Constructor to create new boardgame
         public BoardGame(string title, string condition, decimal price, string gameType, int minPlayers, int maxPlayers)
         {
@@ -32,7 +35,8 @@ namespace Brætspils_butikken
 
         public override string ToString()
         {
-            return $"[{Id}]: {Title} ({GameType}) - {Condition}, Price: {Price} kr, Players: {MinPlayers}-{MaxPlayers}";
+            string reservationStatus = IsReserved ? $"(Reserved to: {ReservedTo})" : "";
+            return $"[{Id}]: {Title} ({GameType}) - {Condition}, Price: {Price} kr, Players: {MinPlayers}-{MaxPlayers} - {reservationStatus}";
         }
 
     }

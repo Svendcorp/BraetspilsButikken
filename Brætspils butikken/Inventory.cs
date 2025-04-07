@@ -22,6 +22,8 @@ namespace Brætspils_butikken
             LoadRequestFromFile();
         }
 
+        //------------------------------------------------------------------------------------------------------------------------------------
+
         public void AddGame()
         {
             Console.Clear(); // Title
@@ -106,6 +108,8 @@ namespace Brætspils_butikken
             Console.ReadKey();
         }
 
+        //------------------------------------------------------------------------------------------------------------------------------------
+
         //Remove a game from inventory
         public void RemoveGame(string title)
         {
@@ -124,6 +128,8 @@ namespace Brætspils_butikken
             }
         }
 
+        //------------------------------------------------------------------------------------------------------------------------------------
+
         //Show all games in inventory
         public void ShowInventory()
         {
@@ -141,6 +147,8 @@ namespace Brætspils_butikken
             }
             Console.WriteLine("----------------------------------------");
         }
+
+        //------------------------------------------------------------------------------------------------------------------------------------
 
         public void EditGame(string title)
         {
@@ -209,6 +217,8 @@ namespace Brætspils_butikken
             }
         }
 
+        //------------------------------------------------------------------------------------------------------------------------------------
+
         public List<BoardGame> FindGame(string searchTerm) //Søg efter spil
         {
             List<BoardGame> results = new List<BoardGame>(); //Opretter en liste til at gemme resultaterne
@@ -269,15 +279,21 @@ namespace Brætspils_butikken
 
         private List<BoardGame> FindByString(string searchTerm) 
         {
+            searchTerm = searchTerm.ToLower();
             List<BoardGame> results = new List<BoardGame>();
 
             // Søg efter titel, spiltype eller ID
             var matches = games.Where(g =>
-                g.Title.ToLower().Contains(searchTerm.ToLower()) ||
-                g.GameType.ToLower().Contains(searchTerm.ToLower()) ||
-                g.Id.ToString().IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0
-            ).ToList();
-
+                g.Title.ToLower().Contains(searchTerm) ||
+                g.GameType.ToLower().Contains(searchTerm) ||
+                g.Id.ToString().ToLower().Contains(searchTerm) ||
+                g.Condition.ToLower().Contains(searchTerm) || // hvis du vil inkludere stand
+                (searchTerm == "reserveret" && g.IsReserved) ||
+                (searchTerm == "ledig" && !g.IsReserved) ||
+                (!string.IsNullOrEmpty(g.ReservedTo) && g.ReservedTo.ToLower().Contains(searchTerm))
+                ).ToList();
+                //g.Id.ToString().IndexOf(searchTerm, StringComparison.OrdinalIgnoreCase) >= 0
+                
             Console.WriteLine($"Searching for: {searchTerm}");
             Console.WriteLine($"Number of matches found: {matches.Count()}");
 
@@ -289,12 +305,12 @@ namespace Brætspils_butikken
             return results;
         }
 
-
+        //------------------------------------------------------------------------------------------------------------------------------------
 
         //=======Game Request Add/Remove ========//
 
         //Request List
-        
+
         public List<RequestGame> GameRequests = new List<RequestGame>();
 
         //Request ADD
@@ -355,6 +371,9 @@ namespace Brætspils_butikken
                 Console.ReadKey();
             }
         }
+
+       
+        
 
 
 
@@ -443,6 +462,33 @@ namespace Brætspils_butikken
 
         }
         */
+
+        //------------------------------------------------------------------------------------------------------------------------------------
+
+    
+
+
+//===== Reserve Game ======//
+public void ReserveGame(string gameId, string customerName)
+        {
+            var game = games.FirstOrDefault(g => g.Id == gameId);
+            if (game == null)
+            {
+                Console.WriteLine("Game was not found");
+                return;
+            }
+
+            if (game.IsReserved)
+            {
+                Console.WriteLine($"Game is allready reserved o {game.ReservedTo}.");
+                return;
+            }
+
+            game.IsReserved = true;
+            game.ReservedTo = customerName;
+            Console.WriteLine("Game '{game.Title}' is now reserved to {customerName}.");
+        }
+
 
 
         //===== Save/load Game=====//

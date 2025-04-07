@@ -36,6 +36,8 @@ namespace Brætspils_butikken
             Console.WriteLine();
         }
 
+
+
         public void Start()
         {
 
@@ -108,6 +110,8 @@ namespace Brætspils_butikken
             }
         }
 
+        //------------------------------------------------------------------------------------------------------------------------------------
+
         //=== Admin Menu ===========
         private void MenuAddGame()
         {
@@ -150,8 +154,8 @@ namespace Brætspils_butikken
                 {
                     case '1':
                         inventory.ShowInventory();
-                        Console.WriteLine("\nPress a key to continue...");
-                        Console.ReadKey();
+                        Console.WriteLine("\nPress enter to continue...");
+                        Console.ReadLine();
                         break;
 
                     case '2':
@@ -185,7 +189,8 @@ namespace Brætspils_butikken
                                 string condition = game.Condition;
 
                                 // Justerer output
-                                Console.WriteLine($"{title,-25} | {gameType,-5} | {price,-5} | {playerCount,-10} | {condition,-5} | {game.Id,-5} | ");
+                                string reservedInfo = game.IsReserved ? $"Reserved to {game.ReservedTo}" : "Free";
+                                Console.WriteLine($"{title,-25} | {gameType,-5} | {price,-5} | {playerCount,-10} | {condition,-5} | {game.Id,-5} | {reservedInfo}");
                             }
                             Console.WriteLine(new string('-', 79));
 
@@ -208,11 +213,30 @@ namespace Brætspils_butikken
             }
         }
 
-        //=== Reservation Menu =====
-        private void MenuReserveGame()
-        {
-            Console.WriteLine("=== Reserve Game ===");
+        //------------------------------------------------------------------------------------------------------------------------------------
 
+        //=== Reservation Menu =====
+        public void MenuReserveGame()
+        {
+            Console.Clear();
+            Console.WriteLine("=== Reserve Game ===");
+            Console.WriteLine("Write Boardgame ID (min. 4 chars): ");
+            string idInput = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(idInput) || idInput.Length < 4)
+            {
+                Console.WriteLine("ID has to be atleast 4 characters.");
+            }
+            else
+            {
+                Console.WriteLine("Write Name of customer");
+                string customerName = Console.ReadLine();
+
+                inventory.ReserveGame(idInput, customerName);
+            }
+            
+            Console.WriteLine("Tryk på en tast for at fortsætte...");
+            Console.ReadKey();
         }
 
         private void MenuReservationList()
@@ -241,8 +265,7 @@ namespace Brætspils_butikken
             }
         }
 
-
-
+        //------------------------------------------------------------------------------------------------------------------------------------
 
         //=== Game Requests =====
         public void MenuGameRequest()
@@ -302,16 +325,10 @@ namespace Brætspils_butikken
                         break;
 
                 }
-
-
-
             }
         }
 
-
-
-
-
+        //------------------------------------------------------------------------------------------------------------------------------------
 
         //Exit
         private void MenuExit()
